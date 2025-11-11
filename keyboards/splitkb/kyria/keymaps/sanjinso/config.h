@@ -95,6 +95,6 @@
 //#define BILATERAL_COMBINATIONS 100
 
 
- #define FLOW_TAP_TERM 150
+// #define FLOW_TAP_TERM 150
 //#define CHORDAL_HOLD
 //#define RETRO_TAPPING

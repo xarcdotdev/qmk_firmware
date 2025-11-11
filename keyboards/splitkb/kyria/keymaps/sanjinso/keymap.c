@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * | RESET LYR  |   Z  |   F  |   L  |   C  |   W  | ____ | ____ |  | ____ | ____ |   Q   |   U  |   O  |   Y  |   K  |   -   |
 * `----------------------+------+--------+--------+------+------|  |------+------+------+------+------+---------------------'
 *                        | ____ | INVRT | MEDIA | NAVI  | MOUSE |  | SYM  | NUM    | FUNC   | ____ | ____ |
-*                        |      | Escape|   T   | Space | Tab   |  | Enter| Bspace | Delete | ___  |      |
+*                        |      |       | Escape| Space | Tab   |  | Enter| Bspace |  T     | ___  |      |
 *                         `-------------------------------------'  `----------------------------------------'
 *                         Leader Key: Space + Backspace combo
 */
@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   TO(BASE),  KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,                                KC_COPY_C, KC_CUT_C,  KC_PASTE_C, KC_UNDO_C, KC_REDO_C, KC_NU,
   LLOCK,  KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   KC_NU,                                KC_CAPS,   KC_LEFT,   KC_DOWN,    KC_UP,     KC_RGHT,   KC_NU,
   TO(BASE),  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NU, KC_NU, KC_NU,  KC_NU,   KC_NU, KC_INS,    KC_HOME,   KC_PGDN,    KC_PGUP,   KC_END,    KC_NU,
-                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS, KC_TRNS
 ),
 
 /*

@@ -66,14 +66,14 @@
 
 // Thumbcluster
 #define UC_TL1 LT(INVRT, KC_ESC)
-#define UC_TL2 LT(MEDR,  DE_T)
+#define UC_TL2 LT(MEDR,  KC_ESC)
 #define UC_TL3 LT(NAVR,  KC_SPC)
 #define UC_TL4 LT(MOUR,  KC_TAB)
 #define UC_TL5 LT(MOURI, KC_TAB)
 
 #define UC_TR1 LT(SYMBOL, KC_ENT)
 #define UC_TR2 LT(NSL,    KC_BSPC)
-#define UC_TR3 LT(FUNL,   KC_DEL)
+#define UC_TR3 LT(FUNL,   KC_T)
 
 // MISC
 #define KC_LOCK QK_LOCK
