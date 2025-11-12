@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [HDWN] = LAYOUT(
   TO(GAME), DE_J,  DE_G,  DE_M,  DE_P,  DE_V,                                    DE_UE, DE_COMM,  DE_DOT, DE_DQUO, DE_QUOT, DE_SS,
   KC_ESC,   DE_R,  DE_S,  DE_N,  DE_D,  DE_B,                                    DE_OE, DE_A,    DE_E,    DE_I,    DE_H,    DE_X,
-  TO(BASE), ALT_X, CTL_F, SHT_L, GUI_C, DE_W,  KC_NU, KC_NU,  KC_NU,  KC_NU,    DE_Q, GUI_U,   SHT_O,   CTL_Y_HD,   ALT_K_HD,   DE_MINS,
+  TO(BASE), ALT_Z, CTL_F, SHT_L, GUI_C, DE_W,  KC_NU, KC_NU,  KC_NU,  KC_NU,    DE_Q, GUI_U,   SHT_O,   CTL_Y_HD,   ALT_K_HD,   DE_MINS,
                        KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
 ),
 
