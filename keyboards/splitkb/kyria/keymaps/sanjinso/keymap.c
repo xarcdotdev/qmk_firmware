@@ -730,18 +730,18 @@ bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
 uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
     switch (combo_index) {
         case QU_COMBO:
-            return 60;  // 60ms window for QU combo
+            return 30;  // 60ms window for QU combo
         case SEMICOLON_COMBO:
-            return 50;
+            return 30;
         case AE_UMLAUT:
-            return 30;  // Shorter window to prevent misfires on common A-E sequences
+            return 20;  // Shorter window to prevent misfires on common A-E sequences
         // H-digraph combos - slightly longer timing
         case TH_COMBO:
         case CH_COMBO:
         case SH_COMBO:
         case GH_COMBO:
         case PH_COMBO:
-            return 55;
+            return 40;
     }
     return COMBO_TERM;  // Default 45ms from config.h
 }
