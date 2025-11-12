@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT(
   TO(HDWN), DE_F,  DE_M,  DE_L,  DE_C,  DE_P,                                  DE_UE,  DE_COMM, DE_DOT, DE_U,  DE_B,  DE_SS,
   KC_ESC,    DE_S,  DE_N,  DE_R,  DE_T,  DE_D,                                  DE_O,   DE_A,    DE_E,   DE_I,  DE_H,  DE_X,
-  TO(BASE), GUI_Z, ALT_V, SHT_W, CTL_G, DE_J,  KC_NU, KC_NU,  KC_NU,  KC_NU,  DE_Q,   CTL_AE,  SHT_OE, ALT_Y, GUI_K, DE_MINS,
+  TO(BASE), ALT_Z, CTL_V, SHT_W, GUI_G, DE_J,  KC_NU, KC_NU,  KC_NU,  KC_NU,  DE_Q,   GUI_AE,  SHT_OE, CTL_Y, ALT_K, DE_MINS,
                        KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
 ),
 
@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [HDWN] = LAYOUT(
   TO(GAME), DE_J,  DE_G,  DE_M,  DE_P,  DE_V,                                    DE_UE, DE_COMM,  DE_DOT, DE_DQUO, DE_QUOT, DE_SS,
   KC_ESC,   DE_R,  DE_S,  DE_N,  DE_D,  DE_B,                                    DE_OE, DE_A,    DE_E,    DE_I,    DE_H,    DE_X,
-  TO(BASE), GUI_Z, ALT_F, SHT_L, CTL_C, DE_W,  KC_NU, KC_NU,  KC_NU,  KC_NU,    DE_Q, CTL_U,   SHT_O,   ALT_Y,   GUI_K,   DE_MINS,
+  TO(BASE), ALT_X, CTL_F, SHT_L, GUI_C, DE_W,  KC_NU, KC_NU,  KC_NU,  KC_NU,    DE_Q, GUI_U,   SHT_O,   CTL_Y_HD,   ALT_K_HD,   DE_MINS,
                        KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
 ),
 
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [INVRT] = LAYOUT(
   DE_SS,   DE_B, DE_U,   DE_DOT, DE_COMM, DE_UE,                                    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   DE_X,    DE_H, DE_I,   DE_E,   DE_A,    DE_O,                                     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-  KC_BSPC, GUI_K, ALT_Y, SHT_OE, CTL_AE,  DE_Q,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  KC_BSPC, ALT_K, CTL_Y, SHT_OE, GUI_AE,  DE_Q,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MEDR] = LAYOUT(
   TO(BASE), KC_NU,  KC_NU,   KC_NU,   KC_NU,   KC_NU,                                        KC_NU,  KC_NU,         KC_NU,               KC_NU,         KC_NU,   KC_NU,
   LLOCK, KC_NU,  KC_F14,  KC_F15,  KC_F16,  KC_NU,                                        KC_NU,  KC_MPRV,       KC_VOLD,             KC_VOLU,       KC_MNXT, KC_NU,
-  TO(BASE), KC_LGUI,KC_LALT, KC_LSFT, KC_LCTL,  KC_NU, KC_NU, KC_NU,  KC_NU,         KC_NU,   KC_NU,  KC_MEDIA_STOP, KC_MEDIA_PLAY_PAUSE, KC_AUDIO_MUTE, KC_NU,   KC_NU,
+  TO(BASE), KC_LALT,KC_LCTL, KC_LSFT, KC_LGUI,  KC_NU, KC_NU, KC_NU,  KC_NU,         KC_NU,   KC_NU,  KC_MEDIA_STOP, KC_MEDIA_PLAY_PAUSE, KC_AUDIO_MUTE, KC_NU,   KC_NU,
                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_MEDIA_STOP, KC_MEDIA_PLAY_PAUSE, KC_AUDIO_MUTE, KC_TRNS, KC_TRNS
 
 ),
@@ -158,8 +158,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NAVR] = LAYOUT(
   TO(BASE),  KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,                                KC_COPY_C, KC_CUT_C,  KC_PASTE_C, KC_UNDO_C, KC_REDO_C, KC_NU,
-  LLOCK,  KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   KC_NU,                                KC_CAPS,   KC_LEFT,   KC_DOWN,    KC_UP,     KC_RGHT,   KC_NU,
-  TO(BASE),  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NU, KC_NU, KC_NU,  KC_NU,   KC_NU, KC_INS,    KC_HOME,   KC_PGDN,    KC_PGUP,   KC_END,    KC_NU,
+  LLOCK,  KC_LALT,   KC_LCTL,   KC_LSFT,   KC_LGUI,   KC_NU,                                KC_CAPS,   KC_LEFT,   KC_DOWN,    KC_UP,     KC_RGHT,   KC_NU,
+  TO(BASE),  KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_NU, KC_NU, KC_NU,  KC_NU,   KC_NU, KC_INS,    KC_HOME,   KC_PGDN,    KC_PGUP,   KC_END,    KC_NU,
                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS, KC_TRNS
 ),
 
@@ -179,8 +179,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 [WIN_NAV] = LAYOUT(
   TO(BASE),  KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,                                                  KC_TRNS,        LAG(KC_LEFT),   LAG(KC_DOWN),   LAG(KC_UP),     LAG(KC_RGHT),   KC_NU,
-  KC_TRNS,   KC_LALT, KC_LCTL, KC_LGUI, KC_LSFT, KC_NU,                                                  KC_TRNS,        LGUI(KC_LEFT),  LGUI(KC_DOWN),  LGUI(KC_UP),    LGUI(KC_RGHT),  KC_NU,
-  KC_TRNS,   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NU, KC_NU, KC_NU,  KC_NU,   KC_NU,                 LGUI(KC_TAB),   LGUI(KC_HOME),  LGUI(KC_PGDN),  LGUI(KC_PGUP),  LGUI(KC_END),   KC_NU,
+  KC_TRNS,   KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_NU,                                                  KC_TRNS,        LGUI(KC_LEFT),  LGUI(KC_DOWN),  LGUI(KC_UP),    LGUI(KC_RGHT),  KC_NU,
+  KC_TRNS,   KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_NU, KC_NU, KC_NU,  KC_NU,   KC_NU,                 LGUI(KC_TAB),   LGUI(KC_HOME),  LGUI(KC_PGDN),  LGUI(KC_PGUP),  LGUI(KC_END),   KC_NU,
                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
@@ -202,7 +202,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MOUR] = LAYOUT(
   TO(BASE), KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,                                 KC_NU, KC_NU,   KC_NU,   KC_NU,   KC_NU,    KC_NU,
   LLOCK, KC_NU,  KC_NU,   KC_NU,   KC_NU,   KC_NU,                                 KC_NU, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, KC_NU,
-  TO(BASE), KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU,
+  TO(BASE), KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU,
                       KC_NP,   KC_NP,  KC_NU,   KC_NU, KC_NU, MS_BTN1, MS_BTN3, MS_BTN2, KC_NP, KC_NP
 ),
 
@@ -224,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MOURI] = LAYOUT(
   TO(BASE), KC_NU,   KC_NU,   KC_NU,   KC_NU,    KC_NU,                                 KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
   LLOCK,    MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, KC_NU,                                 KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
-  TO(BASE), MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU,   KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, KC_NU,
+  TO(BASE), MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU,   KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, KC_NU,
                               KC_NP, KC_NP, MS_BTN2, MS_BTN3, MS_BTN1, MS_BTN1, MS_BTN3, MS_BTN2, KC_NP, KC_TRNS
 ),
 
@@ -246,7 +246,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [FUNL] = LAYOUT(
   TO(BASE),  KC_F12, KC_F7,  KC_F8,  KC_F9, KC_PSCR,                                        DM_REC1, DM_PLY1,  DM_REC2,            DM_PLY2,          KC_NU,   DM_RSTP,
   TO(FUNL),  KC_F11, KC_F4,  KC_F5,  KC_F6, KC_SCROLL_LOCK,                                 EE_CLR,  KC_LOCK,  KC_BRIGHTNESS_DOWN, KC_BRIGHTNESS_UP, KC_NU,   KC_NU,
-  TO(BASE),  KC_F10, KC_F1,  KC_F2,  KC_F3, KC_PAUS,        KC_NU, KC_NU,  KC_NU,   KC_NU,  KC_NU,   KC_LCTL,  KC_LSFT,            KC_LALT,          KC_LGUI, DB_TOGG,
+  TO(BASE),  KC_F10, KC_F1,  KC_F2,  KC_F3, KC_PAUS,        KC_NU, KC_NU,  KC_NU,   KC_NU,  KC_NU,   KC_LGUI,  KC_LSFT,            KC_LCTL,          KC_LALT, DB_TOGG,
                              KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
@@ -267,7 +267,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 [NSL] = LAYOUT(
   TO(BASE),  DE_MINS, DE_7, DE_8, DE_9, DE_PLUS,                                  KC_NA, KC_NA,  KC_NA,   KC_NA,   KC_NU,   KC_NU,
-  LLOCK,   DE_DOT,  DE_4, DE_5, DE_6, DE_COMM,                                    KC_NA, KC_LSFT,  KC_LGUI,   KC_LCTL,   KC_LALT,   KC_NU,
+  LLOCK,   DE_DOT,  DE_4, DE_5, DE_6, DE_COMM,                                    KC_NA, KC_LGUI,  KC_LSFT,   KC_LCTL,   KC_LALT,   KC_NU,
   TO(BASE),DE_BSLS, DE_1, DE_2, DE_3, DE_ASTR, KC_NU, KC_NU,       KC_NU,         KC_NU,  KC_NU, KC_NU,   KC_NU, KC_NU, KC_NU, KC_NU,
                          KC_NP, KC_BSPC, KC_SPC, DE_0, DE_EQL,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS
 ),
@@ -312,7 +312,7 @@ TO(BASE), DE_HASH, TD(TD_CURNCY), DE_LABK, DE_RABK, DE_ASTR, KC_NU, KC_NU,  KC_N
     [QWERTY] = LAYOUT(
     TO(GAME), DE_Q,  DE_W,  DE_E,  DE_R, DE_T,                                                                  KC_Y, KC_U,  KC_I,  KC_O,  KC_P,  KC_PIPE,
     KC_LSFT,  DE_A,  DE_S,  DE_D,  DE_F, DE_G,                                                                  DE_H, DE_J, DE_K, DE_L, DE_X, DE_QUOT,
-    TO(BASE), GUI_Z, ALT_X, SHT_C, CTL_V, DE_B, KC_NU, KC_NU,                        KC_NU,     KC_NU,  DE_N,  CTL_M, SHT_COMM, ALT_DOT, GUI_SLSH, DE_MINS,
+    TO(BASE), ALT_Z_Q, CTL_X, SHT_C, GUI_V, DE_B, KC_NU, KC_NU,                        KC_NU,     KC_NU,  DE_N,  GUI_M, SHT_COMM, CTL_DOT, ALT_SLSH, DE_MINS,
     KC_NU, LT(INVRT, KC_ESC), LT(MEDR, KC_ENT), LT(NAVR, KC_SPC), LT(MOUR, KC_TAB),  LT(SYMBOL, KC_ENT), LT(NSL, KC_BSPC), LT(FUNL, KC_DEL), KC_NU, KC_TRNS
 ),
 
@@ -386,23 +386,23 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 //Lower Tapping term is needed for quicker activation of modifier. However there are Combos too.
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case GUI_Z:
+        case ALT_Z:
             return TAPPING_TERM + 10; //210
-        case ALT_V:
+        case CTL_V:
             return TAPPING_TERM - 20; //180
         case SHT_W:
             return TAPPING_TERM - 40; //170
-        case CTL_G:
+        case GUI_G:
             return TAPPING_TERM - 30; //170
             //return TAPPING_TERM - 30; //170
 
-        case GUI_K:
+        case ALT_K:
             return TAPPING_TERM + 10; //210
-        case ALT_Y:
-            return TAPPING_TERM + 30; //230
-        case CTL_AE:
+        case CTL_Y:
             return TAPPING_TERM + 30; //230
         case SHT_OE:
+            return TAPPING_TERM + 30; //230
+        case GUI_AE:
             return TAPPING_TERM - 90; //110
             //return TAPPING_TERM - 50; //170
             //return TAPPING_TERM - 30; //170
@@ -524,38 +524,38 @@ enum combo_events  {
 int COMBO_LEN = COMBO_LENGTH;
 
 //Combo Activation
-const uint16_t PROGMEM copy_combo[]  = { CTL_G, DE_C, COMBO_END };
-const uint16_t PROGMEM paste_combo[] = { CTL_G, DE_V, COMBO_END };
-const uint16_t PROGMEM cut_combo[] = { CTL_G, DE_X, COMBO_END };
-const uint16_t PROGMEM save_combo[]  = { CTL_G, DE_S, COMBO_END };
-const uint16_t PROGMEM undo_combo[]  = { CTL_G, DE_Z, COMBO_END };
-const uint16_t PROGMEM redo_combo[]  = { CTL_G, SHT_W, DE_Z, COMBO_END };
+const uint16_t PROGMEM copy_combo[]  = { GUI_G, DE_C, COMBO_END };
+const uint16_t PROGMEM paste_combo[] = { GUI_G, DE_V, COMBO_END };
+const uint16_t PROGMEM cut_combo[] = { GUI_G, DE_X, COMBO_END };
+const uint16_t PROGMEM save_combo[]  = { GUI_G, DE_S, COMBO_END };
+const uint16_t PROGMEM undo_combo[]  = { GUI_G, DE_Z, COMBO_END };
+const uint16_t PROGMEM redo_combo[]  = { GUI_G, SHT_W, DE_Z, COMBO_END };
 
-const uint16_t PROGMEM alt_tab_combo[] = { ALT_V, UC_TL4, COMBO_END };
-const uint16_t PROGMEM ctrl_tab_combo[] = { CTL_G, UC_TL4, COMBO_END };
-const uint16_t PROGMEM shift_ctrl_tab_combo[] = { CTL_G, SHT_W, UC_TL4, COMBO_END };
+const uint16_t PROGMEM alt_tab_combo[] = { CTL_V, UC_TL4, COMBO_END };
+const uint16_t PROGMEM ctrl_tab_combo[] = { GUI_G, UC_TL4, COMBO_END };
+const uint16_t PROGMEM shift_ctrl_tab_combo[] = { GUI_G, SHT_W, UC_TL4, COMBO_END };
 
-const uint16_t PROGMEM alt_space_combo[] = { ALT_V, UC_TL3, COMBO_END };
+const uint16_t PROGMEM alt_space_combo[] = { CTL_V, UC_TL3, COMBO_END };
 
-const uint16_t PROGMEM win_ctrl_left_combo[] = { GUI_Z, CTL_G, KC_LEFT, COMBO_END };
-const uint16_t PROGMEM win_ctrl_right_combo[] = { GUI_Z, CTL_G, KC_RGHT, COMBO_END };
+const uint16_t PROGMEM win_ctrl_left_combo[] = { ALT_Z, GUI_G, KC_LEFT, COMBO_END };
+const uint16_t PROGMEM win_ctrl_right_combo[] = { ALT_Z, GUI_G, KC_RGHT, COMBO_END };
 
-const uint16_t PROGMEM alt_up_combo[] = { ALT_V, KC_UP, COMBO_END };
-const uint16_t PROGMEM alt_down_combo[] = { ALT_V, KC_DOWN, COMBO_END };
-const uint16_t PROGMEM alt_left_combo[] = { ALT_V, KC_LEFT, COMBO_END };
-const uint16_t PROGMEM alt_right_combo[] = { ALT_V, KC_RGHT, COMBO_END };
-const uint16_t PROGMEM rwin_shift_s_combo[] = { GUI_K, SHT_OE, DE_S, COMBO_END };
+const uint16_t PROGMEM alt_up_combo[] = { CTL_V, KC_UP, COMBO_END };
+const uint16_t PROGMEM alt_down_combo[] = { CTL_V, KC_DOWN, COMBO_END };
+const uint16_t PROGMEM alt_left_combo[] = { CTL_V, KC_LEFT, COMBO_END };
+const uint16_t PROGMEM alt_right_combo[] = { CTL_V, KC_RGHT, COMBO_END };
+const uint16_t PROGMEM rwin_shift_s_combo[] = { ALT_K, SHT_OE, DE_S, COMBO_END };
 
-const uint16_t PROGMEM quick_terminal_combo[] = { GUI_Z, UC_TR1, COMBO_END };
+const uint16_t PROGMEM quick_terminal_combo[] = { ALT_Z, UC_TR1, COMBO_END };
 
 // const uint16_t PROGMEM close_combo[]  = { CTL_G, DE_W, COMBO_END };
 // const uint16_t PROGMEM close_combo_b[]  = { DE_R, DE_W, COMBO_END };
 
 const uint16_t PROGMEM clear_line_combo[] = {KC_BSPC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM quick_win_combo[]  = {UC_TL4, UC_TR1, COMBO_END };
-const uint16_t PROGMEM quick_vbox_combo[]  = {GUI_Z, CTL_G, COMBO_END };
+const uint16_t PROGMEM quick_vbox_combo[]  = {ALT_Z, GUI_G, COMBO_END };
 
-const uint16_t PROGMEM select_all_combo[] = { CTL_G, DE_A, COMBO_END };
+const uint16_t PROGMEM select_all_combo[] = { GUI_G, DE_A, COMBO_END };
 
 // Hands Down Gold combos
 const uint16_t PROGMEM semicolon_combo[] = { DE_COMM, DE_DOT, COMBO_END };  // , + . = ;
@@ -564,7 +564,7 @@ const uint16_t PROGMEM qu_combo[] = { DE_G, DE_P, COMBO_END };              // G
 
 // H-digraph combos (Hands Down Gold recommended)
 const uint16_t PROGMEM th_combo[] = { DE_D, DE_N, COMBO_END };              // D + N = TH
-const uint16_t PROGMEM ch_combo[] = { CTL_C, SHT_L, COMBO_END };            // C + L = CH
+const uint16_t PROGMEM ch_combo[] = { GUI_C, SHT_L, COMBO_END };            // C + L = CH
 const uint16_t PROGMEM sh_combo[] = { DE_S, DE_N, COMBO_END };              // S + N = SH
 const uint16_t PROGMEM gh_combo[] = { DE_G, DE_M, COMBO_END };              // G + M = GH
 const uint16_t PROGMEM ph_combo[] = { DE_P, DE_M, COMBO_END };              // P + M = PH

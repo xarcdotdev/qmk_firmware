@@ -27,42 +27,42 @@
 #define KC_PASTE_C LCTL(DE_V)
 
 // Left-hand Bottom row mods BUTECK (zvwg)
-#define GUI_Z LGUI_T(DE_Z)
-#define ALT_V LALT_T(DE_V)
+#define ALT_Z LALT_T(DE_Z)
+#define CTL_V LCTL_T(DE_V)
 #define SHT_W LSFT_T(DE_W)
-#define CTL_G LCTL_T(DE_G)
+#define GUI_G LGUI_T(DE_G)
 
 // Right-hand Bottom row mods BUTECK (äöyk)
-#define CTL_AE LCTL_T(DE_AE)
-#define SHT_OE RSFT_T(DE_OE)
-#define ALT_Y LALT_T(DE_Y)
-#define GUI_K LGUI_T(DE_K)
+#define GUI_AE LGUI_T(DE_AE)
+#define SHT_OE LSFT_T(DE_OE)
+#define CTL_Y LCTL_T(DE_Y)
+#define ALT_K LALT_T(DE_K)
 
 /*****************************/
 // Left-hand Bottom row mods HANDS DOWN GOLD
-#define GUI_X LGUI_T(DE_X)
-#define ALT_F LALT_T(DE_F)
+#define ALT_X LALT_T(DE_X)
+#define CTL_F LCTL_T(DE_F)
 #define SHT_L LSFT_T(DE_L)
-#define CTL_C LCTL_T(DE_C)
+#define GUI_C LGUI_T(DE_C)
 
 // Right-hand Bottom row mods HANDS DOWN GOLD
-#define CTL_U LCTL_T(DE_U)
-#define SHT_O RSFT_T(DE_O)
-#define ALT_Y LALT_T(DE_Y)
-#define GUI_K LGUI_T(DE_K)
+#define GUI_U LGUI_T(DE_U)
+#define SHT_O LSFT_T(DE_O)
+#define CTL_Y_HD LCTL_T(DE_Y)
+#define ALT_K_HD LALT_T(DE_K)
 /*****************************/
 
 // Left-hand Bottom row mods QWERTY
-#define GUI_Z LGUI_T(DE_Z)
-#define ALT_X LALT_T(DE_X)
+#define ALT_Z_Q LALT_T(DE_Z)
+#define CTL_X LCTL_T(DE_X)
 #define SHT_C LSFT_T(DE_C)
-#define CTL_V LCTL_T(DE_V)
+#define GUI_V LGUI_T(DE_V)
 
 // Right-hand Bottom row mods QWERTY
-#define CTL_M LCTL_T(DE_M)
-#define SHT_COMM RSFT_T(DE_COMM)
-#define ALT_DOT LALT_T(DE_DOT)
-#define GUI_SLSH LGUI_T(DE_SLSH)
+#define GUI_M LGUI_T(DE_M)
+#define SHT_COMM LSFT_T(DE_COMM)
+#define CTL_DOT LCTL_T(DE_DOT)
+#define ALT_SLSH LALT_T(DE_SLSH)
 
 // Thumbcluster
 #define UC_TL1 LT(INVRT, KC_ESC)
