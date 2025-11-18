@@ -547,6 +547,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case BACKTICK:
             if (record->event.pressed) {
                 tap_code16(DE_GRV);  // Dead key
+                wait_ms(10);
                 tap_code16(KC_SPC);  // Space to finalize it
             }
             return false;
@@ -554,10 +555,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 // Send three backticks
                 tap_code16(DE_GRV);
+                wait_ms(10);
                 tap_code16(KC_SPC);
                 tap_code16(DE_GRV);
+                wait_ms(10);
                 tap_code16(KC_SPC);
                 tap_code16(DE_GRV);
+                wait_ms(10);
                 tap_code16(KC_SPC);
             }
             return false;
