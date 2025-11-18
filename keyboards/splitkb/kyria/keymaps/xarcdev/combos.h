@@ -225,7 +225,7 @@ const uint16_t PROGMEM alt_up_combo[] = { ALT_R_HD, KC_UP, COMBO_END };
 const uint16_t PROGMEM alt_down_combo[] = { ALT_R_HD, KC_DOWN, COMBO_END };
 const uint16_t PROGMEM alt_left_combo[] = { ALT_R_HD, KC_LEFT, COMBO_END };
 const uint16_t PROGMEM alt_right_combo[] = { ALT_R_HD, KC_RGHT, COMBO_END };
-const uint16_t PROGMEM alt_f4_combo[] = { ALT_R_HD, UC_TR3, KC_F4, COMBO_END };
+const uint16_t PROGMEM alt_f4_combo[] = { ALT_H_HD, UC_TR3, KC_F4, COMBO_END };
 
 // Two-modifier + key combos
 const uint16_t PROGMEM sht_ctl_tab_combo[] = { CTL_S_HD, SHT_N_HD, UC_TL4, COMBO_END };
@@ -1170,6 +1170,7 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case SHT_TAB:
         case CTL_TAB:
         case ALT_SPACE:
+        case ALT_F4_COMBO:
         case SHT_CTL_TAB:
 
         // Two-modifier + Space combos
