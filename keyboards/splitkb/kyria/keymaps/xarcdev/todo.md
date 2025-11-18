@@ -2,9 +2,7 @@
 # TODO
 
 ## implement
-- fix play/pause media
-- fix left gui
-- winmove layer: workspace switching top row, window move between workspaces, layout toggle
+
 - workspace combo: t + Num + # => gui + #
 - NAV layer: cut/copy/paste combos (w/ shift variants)
 - NAV + mods combo (alt/ctl/shift) - order independent

@@ -55,35 +55,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 *                         `-------------------------------------'  `----------------------------------------'
 *                         Leader Key: Space + Backspace combo
 */
-[HDWN] = LAYOUT(
-  TO(GAME), DE_J,  DE_G,  DE_M,  DE_P,  DE_V,                                    DE_UE, DE_COMM,  DE_DOT, DE_DQUO, DE_QUOT, DE_SS,
-  KC_ESC,   DE_R,  DE_S,  DE_N,  DE_D,  DE_B,                                    DE_OE, DE_A,    DE_E,    DE_I,    DE_H,    DE_X,
-  TO(BASE), DE_Z, DE_F, DE_L, DE_C, DE_W,  KC_NU, KC_NU,  KC_NU,  KC_NU,    DE_Q, DE_U,   DE_O,   DE_Y,   DE_K,   DE_MINS,
-                       KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
-),
-
-/*
-* Base Layer: BUTECK-XCV
-*
-* ,-----------------------------------------------.                              ,------------------------------------------.
-* | RESET LYR  |   F  |   M  |   L  |   C  |   P  |                              |   Ü  |   ,  |   .  |   U  |   B  |   ß   |
-* |------------+------+------+------+------+------|                              |------+------+------+------+------+-------|
-* | LOCK LYR   |   S  |   N  |   R  |   T  |   D  |                              |   O  |   A  |   E  |   I  |   H  |   X   |
-* |------------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+-------|
-* | TOGGLE LYR |   Z  |   V  |   W  |   G  |   J  | ____ | RESET|  | ____ | ____ |   Q  |   Ä  |   Ö  |   Y  |   K  |   -   |
-* `----------------------+------+--------+--------+------+------|  |------+------+------+------+------+---------------------'
-*                        | ____ | INVRT | WINM  | NAVI  | MOUSE |  | SYM  | NUM    | FUNC   | ____ | ____ |
-*                        | ____ | ____  | Esc   | Space | Tab   |  | Enter| Bspace | Delete | ___  |      |
-*                         `-------------------------------------'  `----------------------------------------'
-*                         Leader Key: Space + Backspace combo
-*/
 [BASE] = LAYOUT(
-  TO(HDWN), DE_F,  DE_M,  DE_L,  DE_C,  DE_P,                                  DE_UE,  DE_COMM, DE_DOT, DE_U,  DE_B,  DE_SS,
-  KC_ESC,    DE_S,  DE_N,  DE_R,  DE_T,  DE_D,                                  DE_O,   DE_A,    DE_E,   DE_I,  DE_H,  DE_X,
-  TO(BASE), ALT_Z, CTL_V, SHT_W, GUI_G, DE_J,  KC_NU, KC_NU,  KC_NU,  KC_NU,  DE_Q,   GUI_AE,  SHT_OE, CTL_Y, ALT_K, DE_MINS,
+  TO(BUTCK), DE_J,  DE_G,  DE_M,  DE_P,  DE_V,                                    DE_UE, DE_COMM,  DE_DOT, DE_DQUO, DE_QUOT, DE_SS,
+  KC_ESC,   DE_R,  DE_S,  DE_N,  DE_D,  DE_B,                                    DE_OE, DE_A,    DE_E,    DE_I,    DE_H,    DE_X,
+  TO(BASE), DE_Z,  DE_F,  DE_L,  DE_C,  DE_W,  KC_NU, KC_NU,   KC_NU,  KC_NU,    DE_Q, DE_U,   DE_O,   DE_Y,   DE_K,   DE_MINS,
                        KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
 ),
-
 
 /*
 * Navigation Layer: NAVR
@@ -131,12 +108,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 /*
- * Window Navigation Layer: WINM (NAVR + MOUR held together)
+ * Window Navigation Layer: WINM
  *
  * ,-----------------------------------------------------.                          ,-------------------------------------------------------.
  * | RESET LYR  | G+C+← | G+C+↓ | G+C+↑ | G+C+→ | _____ |                           | G+S+C+A+← | G+A+← | G+A+↓ | G+A+↑ | G+A+→ | G+S+C+A+→ |
  * |------------+------+-------+--------+-------+-------|                           |-----------+-------+-------+-------+-------+-----------|
- * | ____       |  ALT  |  CTRL |  SHIFT  | GUI | _____ |                           | _________ | GUI+← | GUI+↓ | GUI+↑ | GUI+→ | _________ |
+ * | ____       |  ALT  |  CTRL |  SHIFT  | GUI | Layout|                           | _________ | GUI+← | GUI+↓ | GUI+↑ | GUI+→ | _________ |
  * |------------+-------+-------+---------+-----+-------+---------.   ,-------------+-----------+-------+-------+-------+-------+-----------|
  * | ____       | G+S+Tab  |  ____ | _____ | G+Tab | _____ | ____ |  | ____ | ____ | ___________| GUI+HOME|G+PGDN|G+PGUP|G+END  | _________ |
  * `-----------------------+-------+-------+-------+-------+------|  |------+------+------------+---------+------+------+-------+-----------'
@@ -146,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 [WINM] = LAYOUT(
   TO(BASE),  LCG(KC_LEFT), LCG(KC_DOWN), LCG(KC_UP), LCG(KC_RGHT), KC_NU,                                    HYPR(KC_LEFT), LAG(KC_LEFT),  LAG(KC_DOWN),  LAG(KC_UP),    LAG(KC_RGHT),  HYPR(KC_RGHT),
-  KC_TRNS,   KC_LALT,      KC_LCTL,      KC_LSFT,    KC_LGUI,      KC_NU,                                    KC_TRNS,       LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP),   LGUI(KC_RGHT), KC_NU,
+  KC_TRNS,   KC_LALT,      KC_LCTL,      KC_LSFT,    KC_LGUI,      LCG(DE_U),                                 KC_TRNS,       LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP),   LGUI(KC_RGHT), KC_NU,
   KC_TRNS,   LSG(KC_TAB),  KC_NU,        KC_NU,      LGUI(KC_TAB), KC_NU,  KC_NU,  KC_NU,    KC_NU,  KC_NU,  KC_NU,         LGUI(KC_HOME), LGUI(KC_PGDN), LGUI(KC_PGUP), LGUI(KC_END),  KC_NU,
                            KC_TRNS,      KC_TRNS,    KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,       KC_TRNS
 ),
@@ -260,6 +237,27 @@ TO(BASE), DE_HASH, TD(TD_CURNCY), DE_LABK, DE_RABK, DE_ASTR, KC_NU, KC_NU,  KC_N
                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
+/*
+* Base Layer: BUTECK-XCV
+*
+* ,-----------------------------------------------.                              ,------------------------------------------.
+* | RESET LYR  |   F  |   M  |   L  |   C  |   P  |                              |   Ü  |   ,  |   .  |   U  |   B  |   ß   |
+* |------------+------+------+------+------+------|                              |------+------+------+------+------+-------|
+* | LOCK LYR   |   S  |   N  |   R  |   T  |   D  |                              |   O  |   A  |   E  |   I  |   H  |   X   |
+* |------------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+-------|
+* | TOGGLE LYR |   Z  |   V  |   W  |   G  |   J  | ____ | RESET|  | ____ | ____ |   Q  |   Ä  |   Ö  |   Y  |   K  |   -   |
+* `----------------------+------+--------+--------+------+------|  |------+------+------+------+------+---------------------'
+*                        | ____ | INVRT | WINM  | NAVI  | MOUSE |  | SYM  | NUM    | FUNC   | ____ | ____ |
+*                        | ____ | ____  | Esc   | Space | Tab   |  | Enter| Bspace | Delete | ___  |      |
+*                         `-------------------------------------'  `----------------------------------------'
+*                         Leader Key: Space + Backspace combo
+*/
+[BUTCK] = LAYOUT(
+  TO(QWERTY), DE_F,  DE_M,  DE_L,  DE_C,  DE_P,                                  DE_UE,  DE_COMM, DE_DOT, DE_U,  DE_B,  DE_SS,
+  KC_ESC,    DE_S,  DE_N,  DE_R,  DE_T,  DE_D,                                  DE_O,   DE_A,    DE_E,   DE_I,  DE_H,  DE_X,
+  TO(BASE), ALT_Z, CTL_V, SHT_W, GUI_G, DE_J,  KC_NU, KC_NU,  KC_NU,  KC_NU,  DE_Q,   GUI_AE,  SHT_OE, CTL_Y, ALT_K, DE_MINS,
+                       KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
+),
 
 /*
  * Base Layer: QWERTY
@@ -335,7 +333,7 @@ TO(BASE), DE_HASH, TD(TD_CURNCY), DE_LABK, DE_RABK, DE_ASTR, KC_NU, KC_NU,  KC_N
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state, HDWN, QWERTY, GAME);
+    state = update_tri_layer_state(state, BASE, QWERTY, GAME);
     return state;
 }
 
