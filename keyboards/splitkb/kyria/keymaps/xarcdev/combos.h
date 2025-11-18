@@ -201,7 +201,7 @@ const uint16_t PROGMEM select_all_combo[] = { GUI_G, DE_A, COMBO_END };
 // Hands Down Gold combos
 const uint16_t PROGMEM semicolon_combo[] = { DE_COMM, DE_DOT, COMBO_END };  // , + . = ;
 const uint16_t PROGMEM colon_combo[] = { DE_DOT, DE_DQUO, COMBO_END };      // . + " = :
-const uint16_t PROGMEM underscore_combo[] = { DE_K, DE_MINS, COMBO_END };   // K + - = _
+const uint16_t PROGMEM underscore_combo[] = { DE_DQUO, DE_QUOT, COMBO_END };   // " + ' = _
 const uint16_t PROGMEM ae_umlaut_combo[] = { DE_A, DE_E, COMBO_END };       // A + E = Ä
 const uint16_t PROGMEM qu_combo[] = { DE_G, DE_P, COMBO_END };              // G + P = Q
 
