@@ -136,6 +136,30 @@ enum combo_events  {
     // Thumb-gated four-modifier combo (UC_TL2 + 4 homerow keys) - Hands Down Gold RIGHT SIDE
     HRM_ALL_MODS_R,    // UC_TL2 + A + I + E + H = GUI+Ctrl+Shift+Alt
 
+    // NAV layer + modifier combos (UC_TL3 + left homerow keys) - Hands Down Gold
+    // Single modifier + NAV
+    NAV_ALT,           // UC_TL3 + R = Alt + Nav layer
+    NAV_CTL,           // UC_TL3 + S = Ctrl + Nav layer
+    NAV_SHT,           // UC_TL3 + N = Shift + Nav layer
+    NAV_GUI,           // UC_TL3 + D = GUI + Nav layer
+
+    // Two modifiers + NAV
+    NAV_GUI_SHT,       // UC_TL3 + D + N = GUI+Shift + Nav layer
+    NAV_GUI_CTL,       // UC_TL3 + D + S = GUI+Ctrl + Nav layer
+    NAV_GUI_ALT,       // UC_TL3 + D + R = GUI+Alt + Nav layer
+    NAV_CTL_SHT,       // UC_TL3 + S + N = Ctrl+Shift + Nav layer
+    NAV_CTL_ALT,       // UC_TL3 + S + R = Ctrl+Alt + Nav layer
+    NAV_SHT_ALT,       // UC_TL3 + N + R = Shift+Alt + Nav layer
+
+    // Three modifiers + NAV
+    NAV_GUI_CTL_SHT,   // UC_TL3 + D + S + N = GUI+Ctrl+Shift + Nav layer
+    NAV_GUI_CTL_ALT,   // UC_TL3 + D + S + R = GUI+Ctrl+Alt + Nav layer
+    NAV_GUI_SHT_ALT,   // UC_TL3 + D + N + R = GUI+Shift+Alt + Nav layer
+    NAV_CTL_SHT_ALT,   // UC_TL3 + S + N + R = Ctrl+Shift+Alt + Nav layer
+
+    // Four modifiers + NAV
+    NAV_ALL_MODS,      // UC_TL3 + D + S + N + R = GUI+Ctrl+Shift+Alt + Nav layer
+
     COMBO_LENGTH
 
 };
@@ -276,6 +300,30 @@ const uint16_t PROGMEM hrm_ctl_sht_alt_r_combo[] = { UC_TL2, CTL_I_HD, SHT_E_HD,
 // Thumb-gated four-modifier combo (UC_TL2 + 4 homerow keys) - Hands Down Gold RIGHT SIDE
 const uint16_t PROGMEM hrm_all_mods_r_combo[] = { UC_TL2, GUI_A_HD, CTL_I_HD, SHT_E_HD, ALT_H_HD, COMBO_END };
 
+// NAV layer + modifier combos (UC_TL3 + left homerow keys) - Hands Down Gold
+// Single modifier + NAV
+const uint16_t PROGMEM nav_alt_combo[] = { UC_TL3, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_ctl_combo[] = { UC_TL3, CTL_S_HD, COMBO_END };
+const uint16_t PROGMEM nav_sht_combo[] = { UC_TL3, SHT_N_HD, COMBO_END };
+const uint16_t PROGMEM nav_gui_combo[] = { UC_TL3, GUI_D_HD, COMBO_END };
+
+// Two modifiers + NAV
+const uint16_t PROGMEM nav_gui_sht_combo[] = { UC_TL3, GUI_D_HD, SHT_N_HD, COMBO_END };
+const uint16_t PROGMEM nav_gui_ctl_combo[] = { UC_TL3, GUI_D_HD, CTL_S_HD, COMBO_END };
+const uint16_t PROGMEM nav_gui_alt_combo[] = { UC_TL3, GUI_D_HD, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_ctl_sht_combo[] = { UC_TL3, CTL_S_HD, SHT_N_HD, COMBO_END };
+const uint16_t PROGMEM nav_ctl_alt_combo[] = { UC_TL3, CTL_S_HD, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_sht_alt_combo[] = { UC_TL3, SHT_N_HD, ALT_R_HD, COMBO_END };
+
+// Three modifiers + NAV
+const uint16_t PROGMEM nav_gui_ctl_sht_combo[] = { UC_TL3, GUI_D_HD, CTL_S_HD, SHT_N_HD, COMBO_END };
+const uint16_t PROGMEM nav_gui_ctl_alt_combo[] = { UC_TL3, GUI_D_HD, CTL_S_HD, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_gui_sht_alt_combo[] = { UC_TL3, GUI_D_HD, SHT_N_HD, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_ctl_sht_alt_combo[] = { UC_TL3, CTL_S_HD, SHT_N_HD, ALT_R_HD, COMBO_END };
+
+// Four modifiers + NAV
+const uint16_t PROGMEM nav_all_mods_combo[] = { UC_TL3, GUI_D_HD, CTL_S_HD, SHT_N_HD, ALT_R_HD, COMBO_END };
+
 
 //Combo Action
 combo_t key_combos[COMBO_LENGTH] = {
@@ -399,6 +447,27 @@ combo_t key_combos[COMBO_LENGTH] = {
     [HRM_GUI_SHT_ALT_R] = COMBO_ACTION(hrm_gui_sht_alt_r_combo),
     [HRM_CTL_SHT_ALT_R] = COMBO_ACTION(hrm_ctl_sht_alt_r_combo),
     [HRM_ALL_MODS_R] = COMBO_ACTION(hrm_all_mods_r_combo),
+
+    // NAV layer + modifier combos - Hands Down Gold
+    // Single modifier + NAV
+    [NAV_ALT] = COMBO_ACTION(nav_alt_combo),
+    [NAV_CTL] = COMBO_ACTION(nav_ctl_combo),
+    [NAV_SHT] = COMBO_ACTION(nav_sht_combo),
+    [NAV_GUI] = COMBO_ACTION(nav_gui_combo),
+    // Two modifiers + NAV
+    [NAV_GUI_SHT] = COMBO_ACTION(nav_gui_sht_combo),
+    [NAV_GUI_CTL] = COMBO_ACTION(nav_gui_ctl_combo),
+    [NAV_GUI_ALT] = COMBO_ACTION(nav_gui_alt_combo),
+    [NAV_CTL_SHT] = COMBO_ACTION(nav_ctl_sht_combo),
+    [NAV_CTL_ALT] = COMBO_ACTION(nav_ctl_alt_combo),
+    [NAV_SHT_ALT] = COMBO_ACTION(nav_sht_alt_combo),
+    // Three modifiers + NAV
+    [NAV_GUI_CTL_SHT] = COMBO_ACTION(nav_gui_ctl_sht_combo),
+    [NAV_GUI_CTL_ALT] = COMBO_ACTION(nav_gui_ctl_alt_combo),
+    [NAV_GUI_SHT_ALT] = COMBO_ACTION(nav_gui_sht_alt_combo),
+    [NAV_CTL_SHT_ALT] = COMBO_ACTION(nav_ctl_sht_alt_combo),
+    // Four modifiers + NAV
+    [NAV_ALL_MODS] = COMBO_ACTION(nav_all_mods_combo),
 };
 
 
@@ -804,6 +873,168 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 unregister_code(KC_LALT);
             }
             break;
+
+        // NAV layer + modifier combos - Single modifiers
+        case NAV_ALT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LALT);
+            }
+            break;
+        case NAV_CTL:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LCTL);
+            } else {
+                unregister_code(KC_LCTL);
+            }
+            break;
+        case NAV_SHT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LSFT);
+            } else {
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case NAV_GUI:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+            } else {
+                unregister_code(KC_LGUI);
+            }
+            break;
+
+        // NAV layer + two modifiers
+        case NAV_GUI_SHT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+                register_code(KC_LSFT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case NAV_GUI_CTL:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+                register_code(KC_LCTL);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+            }
+            break;
+        case NAV_GUI_ALT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case NAV_CTL_SHT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+            } else {
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case NAV_CTL_ALT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case NAV_SHT_ALT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LSFT);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LALT);
+            }
+            break;
+
+        // NAV layer + three modifiers
+        case NAV_GUI_CTL_SHT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case NAV_GUI_CTL_ALT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case NAV_GUI_SHT_ALT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+                register_code(KC_LSFT);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case NAV_CTL_SHT_ALT:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LALT);
+            }
+            break;
+
+        // NAV layer + four modifiers
+        case NAV_ALL_MODS:
+            if (pressed) {
+                layer_on(NAVR);
+                register_code(KC_LGUI);
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LALT);
+            }
+            break;
     }
 }
 
@@ -871,6 +1102,23 @@ bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
         case HRM_CTL_SHT_ALT_R:
         // Four-modifier combo - RIGHT SIDE
         case HRM_ALL_MODS_R:
+
+        // NAV layer + modifier combos
+        case NAV_ALT:
+        case NAV_CTL:
+        case NAV_SHT:
+        case NAV_GUI:
+        case NAV_GUI_SHT:
+        case NAV_GUI_CTL:
+        case NAV_GUI_ALT:
+        case NAV_CTL_SHT:
+        case NAV_CTL_ALT:
+        case NAV_SHT_ALT:
+        case NAV_GUI_CTL_SHT:
+        case NAV_GUI_CTL_ALT:
+        case NAV_GUI_SHT_ALT:
+        case NAV_CTL_SHT_ALT:
+        case NAV_ALL_MODS:
             return false;
     }
     return true;
@@ -983,6 +1231,33 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         case HRM_GUI_SHT_ALT_R:
         case HRM_CTL_SHT_ALT_R:
             return 80;
+
+        // NAV layer + single modifier combos (2 keys)
+        case NAV_ALT:
+        case NAV_CTL:
+        case NAV_SHT:
+        case NAV_GUI:
+            return 50;
+
+        // NAV layer + two modifier combos (3 keys)
+        case NAV_GUI_SHT:
+        case NAV_GUI_CTL:
+        case NAV_GUI_ALT:
+        case NAV_CTL_SHT:
+        case NAV_CTL_ALT:
+        case NAV_SHT_ALT:
+            return 60;
+
+        // NAV layer + three modifier combos (4 keys)
+        case NAV_GUI_CTL_SHT:
+        case NAV_GUI_CTL_ALT:
+        case NAV_GUI_SHT_ALT:
+        case NAV_CTL_SHT_ALT:
+            return 80;
+
+        // NAV layer + four modifier combo (5 keys)
+        case NAV_ALL_MODS:
+            return 100;
     }
     return COMBO_TERM;  // Default 40ms from config.h
 }
@@ -1093,6 +1368,23 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
 
         // HRM four-modifier combo - RIGHT SIDE
         case HRM_ALL_MODS_R:
+
+        // NAV layer + modifier combos
+        case NAV_ALT:
+        case NAV_CTL:
+        case NAV_SHT:
+        case NAV_GUI:
+        case NAV_GUI_SHT:
+        case NAV_GUI_CTL:
+        case NAV_GUI_ALT:
+        case NAV_CTL_SHT:
+        case NAV_CTL_ALT:
+        case NAV_SHT_ALT:
+        case NAV_GUI_CTL_SHT:
+        case NAV_GUI_CTL_ALT:
+        case NAV_GUI_SHT_ALT:
+        case NAV_CTL_SHT_ALT:
+        case NAV_ALL_MODS:
             return false;
     }
     return true;
