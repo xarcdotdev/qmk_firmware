@@ -119,6 +119,23 @@ enum combo_events  {
     // Thumb-gated four-modifier combo (UC_TL2 + 4 homerow keys) - Hands Down Gold
     HRM_ALL_MODS,    // UC_TL2 + D + S + N + R = GUI+Ctrl+Shift+Alt
 
+    // Thumb-gated multi-modifier combos (UC_TL2 + 2 homerow keys) - Hands Down Gold RIGHT SIDE
+    HRM_GUI_SHT_R,     // UC_TL2 + A + E = GUI+Shift
+    HRM_GUI_CTL_R,     // UC_TL2 + A + I = GUI+Ctrl
+    HRM_GUI_ALT_R,     // UC_TL2 + A + H = GUI+Alt
+    HRM_CTL_SHT_R,     // UC_TL2 + I + E = Ctrl+Shift
+    HRM_CTL_ALT_R,     // UC_TL2 + I + H = Ctrl+Alt
+    HRM_SHT_ALT_R,     // UC_TL2 + E + H = Shift+Alt
+
+    // Thumb-gated three-modifier combos (UC_TL2 + 3 homerow keys) - Hands Down Gold RIGHT SIDE
+    HRM_GUI_CTL_SHT_R, // UC_TL2 + A + I + E = GUI+Ctrl+Shift
+    HRM_GUI_CTL_ALT_R, // UC_TL2 + A + I + H = GUI+Ctrl+Alt
+    HRM_GUI_SHT_ALT_R, // UC_TL2 + A + E + H = GUI+Shift+Alt
+    HRM_CTL_SHT_ALT_R, // UC_TL2 + I + E + H = Ctrl+Shift+Alt
+
+    // Thumb-gated four-modifier combo (UC_TL2 + 4 homerow keys) - Hands Down Gold RIGHT SIDE
+    HRM_ALL_MODS_R,    // UC_TL2 + A + I + E + H = GUI+Ctrl+Shift+Alt
+
     COMBO_LENGTH
 
 };
@@ -242,6 +259,23 @@ const uint16_t PROGMEM hrm_ctl_sht_alt_combo[] = { UC_TL2, CTL_S_HD, SHT_N_HD, A
 // Thumb-gated four-modifier combo (UC_TL2 + 4 homerow keys) - Hands Down Gold
 const uint16_t PROGMEM hrm_all_mods_combo[] = { UC_TL2, GUI_D_HD, CTL_S_HD, SHT_N_HD, ALT_R_HD, COMBO_END };
 
+// Thumb-gated multi-modifier combos (UC_TL2 + 2 homerow keys) - Hands Down Gold RIGHT SIDE
+const uint16_t PROGMEM hrm_gui_sht_r_combo[] = { UC_TL2, GUI_A_HD, SHT_E_HD, COMBO_END };
+const uint16_t PROGMEM hrm_gui_ctl_r_combo[] = { UC_TL2, GUI_A_HD, CTL_I_HD, COMBO_END };
+const uint16_t PROGMEM hrm_gui_alt_r_combo[] = { UC_TL2, GUI_A_HD, ALT_H_HD, COMBO_END };
+const uint16_t PROGMEM hrm_ctl_sht_r_combo[] = { UC_TL2, CTL_I_HD, SHT_E_HD, COMBO_END };
+const uint16_t PROGMEM hrm_ctl_alt_r_combo[] = { UC_TL2, CTL_I_HD, ALT_H_HD, COMBO_END };
+const uint16_t PROGMEM hrm_sht_alt_r_combo[] = { UC_TL2, SHT_E_HD, ALT_H_HD, COMBO_END };
+
+// Thumb-gated three-modifier combos (UC_TL2 + 3 homerow keys) - Hands Down Gold RIGHT SIDE
+const uint16_t PROGMEM hrm_gui_ctl_sht_r_combo[] = { UC_TL2, GUI_A_HD, CTL_I_HD, SHT_E_HD, COMBO_END };
+const uint16_t PROGMEM hrm_gui_ctl_alt_r_combo[] = { UC_TL2, GUI_A_HD, CTL_I_HD, ALT_H_HD, COMBO_END };
+const uint16_t PROGMEM hrm_gui_sht_alt_r_combo[] = { UC_TL2, GUI_A_HD, SHT_E_HD, ALT_H_HD, COMBO_END };
+const uint16_t PROGMEM hrm_ctl_sht_alt_r_combo[] = { UC_TL2, CTL_I_HD, SHT_E_HD, ALT_H_HD, COMBO_END };
+
+// Thumb-gated four-modifier combo (UC_TL2 + 4 homerow keys) - Hands Down Gold RIGHT SIDE
+const uint16_t PROGMEM hrm_all_mods_r_combo[] = { UC_TL2, GUI_A_HD, CTL_I_HD, SHT_E_HD, ALT_H_HD, COMBO_END };
+
 
 //Combo Action
 combo_t key_combos[COMBO_LENGTH] = {
@@ -352,6 +386,19 @@ combo_t key_combos[COMBO_LENGTH] = {
     [HRM_GUI_SHT_ALT] = COMBO_ACTION(hrm_gui_sht_alt_combo),
     [HRM_CTL_SHT_ALT] = COMBO_ACTION(hrm_ctl_sht_alt_combo),
     [HRM_ALL_MODS] = COMBO_ACTION(hrm_all_mods_combo),
+
+    // Thumb-gated multi-modifier combos - Hands Down Gold RIGHT SIDE
+    [HRM_GUI_SHT_R] = COMBO_ACTION(hrm_gui_sht_r_combo),
+    [HRM_GUI_CTL_R] = COMBO_ACTION(hrm_gui_ctl_r_combo),
+    [HRM_GUI_ALT_R] = COMBO_ACTION(hrm_gui_alt_r_combo),
+    [HRM_CTL_SHT_R] = COMBO_ACTION(hrm_ctl_sht_r_combo),
+    [HRM_CTL_ALT_R] = COMBO_ACTION(hrm_ctl_alt_r_combo),
+    [HRM_SHT_ALT_R] = COMBO_ACTION(hrm_sht_alt_r_combo),
+    [HRM_GUI_CTL_SHT_R] = COMBO_ACTION(hrm_gui_ctl_sht_r_combo),
+    [HRM_GUI_CTL_ALT_R] = COMBO_ACTION(hrm_gui_ctl_alt_r_combo),
+    [HRM_GUI_SHT_ALT_R] = COMBO_ACTION(hrm_gui_sht_alt_r_combo),
+    [HRM_CTL_SHT_ALT_R] = COMBO_ACTION(hrm_ctl_sht_alt_r_combo),
+    [HRM_ALL_MODS_R] = COMBO_ACTION(hrm_all_mods_r_combo),
 };
 
 
@@ -642,6 +689,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 
         // Four-modifier combo
         case HRM_ALL_MODS:
+        case HRM_ALL_MODS_R:
             if (pressed) {
                 register_code(KC_LGUI);
                 register_code(KC_LCTL);
@@ -649,6 +697,108 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 register_code(KC_LALT);
             } else {
                 unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LALT);
+            }
+            break;
+
+        // Multi-modifier combos - Hands Down Gold RIGHT SIDE
+        case HRM_GUI_SHT_R:
+            if (pressed) {
+                register_code(KC_LGUI);
+                register_code(KC_LSFT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case HRM_GUI_CTL_R:
+            if (pressed) {
+                register_code(KC_LGUI);
+                register_code(KC_LCTL);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+            }
+            break;
+        case HRM_GUI_ALT_R:
+            if (pressed) {
+                register_code(KC_LGUI);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case HRM_CTL_SHT_R:
+            if (pressed) {
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+            } else {
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case HRM_CTL_ALT_R:
+            if (pressed) {
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case HRM_SHT_ALT_R:
+            if (pressed) {
+                register_code(KC_LSFT);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LALT);
+            }
+            break;
+
+        // Three-modifier combos - RIGHT SIDE
+        case HRM_GUI_CTL_SHT_R:
+            if (pressed) {
+                register_code(KC_LGUI);
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+            }
+            break;
+        case HRM_GUI_CTL_ALT_R:
+            if (pressed) {
+                register_code(KC_LGUI);
+                register_code(KC_LCTL);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case HRM_GUI_SHT_ALT_R:
+            if (pressed) {
+                register_code(KC_LGUI);
+                register_code(KC_LSFT);
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LALT);
+            }
+            break;
+        case HRM_CTL_SHT_ALT_R:
+            if (pressed) {
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+                register_code(KC_LALT);
+            } else {
                 unregister_code(KC_LCTL);
                 unregister_code(KC_LSFT);
                 unregister_code(KC_LALT);
@@ -707,6 +857,20 @@ bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
         case HRM_CTL_SHT_ALT:
         // Four-modifier combo
         case HRM_ALL_MODS:
+        // Multi-modifier combos - RIGHT SIDE
+        case HRM_GUI_SHT_R:
+        case HRM_GUI_CTL_R:
+        case HRM_GUI_ALT_R:
+        case HRM_CTL_SHT_R:
+        case HRM_CTL_ALT_R:
+        case HRM_SHT_ALT_R:
+        // Three-modifier combos - RIGHT SIDE
+        case HRM_GUI_CTL_SHT_R:
+        case HRM_GUI_CTL_ALT_R:
+        case HRM_GUI_SHT_ALT_R:
+        case HRM_CTL_SHT_ALT_R:
+        // Four-modifier combo - RIGHT SIDE
+        case HRM_ALL_MODS_R:
             return false;
     }
     return true;
@@ -801,7 +965,24 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
 
         // HRM four-modifier combo (5 keys)
         case HRM_ALL_MODS:
+        case HRM_ALL_MODS_R:
             return 100;
+
+        // HRM multi-modifier combos - RIGHT SIDE (3 keys)
+        case HRM_GUI_SHT_R:
+        case HRM_GUI_CTL_R:
+        case HRM_GUI_ALT_R:
+        case HRM_CTL_SHT_R:
+        case HRM_CTL_ALT_R:
+        case HRM_SHT_ALT_R:
+            return 60;
+
+        // HRM three-modifier combos - RIGHT SIDE (4 keys)
+        case HRM_GUI_CTL_SHT_R:
+        case HRM_GUI_CTL_ALT_R:
+        case HRM_GUI_SHT_ALT_R:
+        case HRM_CTL_SHT_ALT_R:
+            return 80;
     }
     return COMBO_TERM;  // Default 40ms from config.h
 }
@@ -895,6 +1076,23 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
 
         // HRM four-modifier combo
         case HRM_ALL_MODS:
+
+        // HRM multi-modifier combos - RIGHT SIDE
+        case HRM_GUI_SHT_R:
+        case HRM_GUI_CTL_R:
+        case HRM_GUI_ALT_R:
+        case HRM_CTL_SHT_R:
+        case HRM_CTL_ALT_R:
+        case HRM_SHT_ALT_R:
+
+        // HRM three-modifier combos - RIGHT SIDE
+        case HRM_GUI_CTL_SHT_R:
+        case HRM_GUI_CTL_ALT_R:
+        case HRM_GUI_SHT_ALT_R:
+        case HRM_CTL_SHT_ALT_R:
+
+        // HRM four-modifier combo - RIGHT SIDE
+        case HRM_ALL_MODS_R:
             return false;
     }
     return true;
