@@ -36,6 +36,8 @@ enum combo_events  {
 
     // Hands Down Gold combos
     SEMICOLON_COMBO,
+    COLON_COMBO,
+    UNDERSCORE_COMBO,
     AE_UMLAUT,
     QU_COMBO,
     GJ_COMBO,
@@ -198,6 +200,8 @@ const uint16_t PROGMEM select_all_combo[] = { GUI_G, DE_A, COMBO_END };
 
 // Hands Down Gold combos
 const uint16_t PROGMEM semicolon_combo[] = { DE_COMM, DE_DOT, COMBO_END };  // , + . = ;
+const uint16_t PROGMEM colon_combo[] = { DE_DOT, DE_DQUO, COMBO_END };      // . + " = :
+const uint16_t PROGMEM underscore_combo[] = { DE_K, DE_MINS, COMBO_END };   // K + - = _
 const uint16_t PROGMEM ae_umlaut_combo[] = { DE_A, DE_E, COMBO_END };       // A + E = Ä
 const uint16_t PROGMEM qu_combo[] = { DE_G, DE_P, COMBO_END };              // G + P = Q
 
@@ -371,6 +375,8 @@ combo_t key_combos[COMBO_LENGTH] = {
 
     // Hands Down Gold combos
     [SEMICOLON_COMBO] = COMBO(semicolon_combo, DE_SCLN),
+    [COLON_COMBO] = COMBO(colon_combo, DE_COLN),
+    [UNDERSCORE_COMBO] = COMBO(underscore_combo, DE_UNDS),
     [AE_UMLAUT] = COMBO(ae_umlaut_combo, DE_AE),
     [QU_COMBO] = COMBO_ACTION(qu_combo),
 
@@ -1001,6 +1007,8 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         // Hands Down Gold combos
         case QU_COMBO:
         case SEMICOLON_COMBO:
+        case COLON_COMBO:
+        case UNDERSCORE_COMBO:
         case GJ_COMBO:
             return 30;
         case AE_UMLAUT:
@@ -1157,6 +1165,8 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         // Hands Down Gold combos
         case QU_COMBO:
         case SEMICOLON_COMBO:
+        case COLON_COMBO:
+        case UNDERSCORE_COMBO:
 
         // H-digraph combos
         case TH_COMBO:
