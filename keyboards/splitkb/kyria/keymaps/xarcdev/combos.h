@@ -1112,6 +1112,10 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         case HRM_CTL_SHT_ALT_R:
             return 80;
 
+        // Leader key combo
+        case LEADER_COMBO:
+            return 50;  // 2 thumb keys - give some room
+
         // NAV layer + single modifier combos (2 keys)
         case NAV_ALT:
         case NAV_CTL:
@@ -1196,6 +1200,9 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case GUI_SHT_ALT_SPACE:
         case GUI_CTL_ALT_SPACE:
         case CTL_SHT_ALT_SPACE:
+
+        // Leader key combo
+        case LEADER_COMBO:
 
         // HRM single modifier combos (thumb or homerow can come first)
         // ALT modifiers - BUTECK, Hands Down Gold, QWERTY

@@ -27,7 +27,7 @@ BLUETOOTH_ENABLE = no
 COMMAND_ENABLE = no
 CONSOLE_ENABLE = no
 DYNAMIC_MACRO_ENABLE = no
-LEADER_ENABLE = no
+LEADER_ENABLE = yes
 
 # =============================================================================
 # Display & Lighting - Disabled

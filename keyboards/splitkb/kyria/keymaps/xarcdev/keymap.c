@@ -666,3 +666,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+void leader_end_user(void) {
+    if (leader_sequence_one_key(KC_Q)) {
+        tap_code16(S(DE_DOT));  // :
+        tap_code16(DE_Q);       // q
+    } else if (leader_sequence_one_key(KC_W)) {
+        tap_code16(S(DE_DOT));  // :
+        tap_code16(DE_W);       // w
+        tap_code16(DE_Q);       // q
+    }
+}
+
