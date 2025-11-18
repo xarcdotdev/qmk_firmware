@@ -111,20 +111,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Window Navigation Layer: WINM
  *
  * ,-----------------------------------------------------.                          ,-------------------------------------------------------.
- * | RESET LYR  | G+C+← | G+C+↓ | G+C+↑ | G+C+→ | _____ |                           | G+S+C+A+← | G+A+← | G+A+↓ | G+A+↑ | G+A+→ | G+S+C+A+→ |
+ * | RESET LYR  | G+C+← | _____ | _______ | G+C+→ | _____ |                           | G+S+C+A+← | G+A+← | G+A+↓ | G+A+↑ | G+A+→ | G+S+C+A+→ |
  * |------------+------+-------+--------+-------+-------|                           |-----------+-------+-------+-------+-------+-----------|
- * | ____       |  ALT  |  CTRL |  SHIFT  | GUI | Layout|                           | _________ | GUI+← | GUI+↓ | GUI+↑ | GUI+→ | _________ |
+ * | ____       |  ALT  |  CTRL |  SHIFT  | GUI | Layout|                           | _________ |  GUI  | SHIFT |  CTRL |  ALT  | _________ |
  * |------------+-------+-------+---------+-----+-------+---------.   ,-------------+-----------+-------+-------+-------+-------+-----------|
- * | ____       | ____  |  ____ | _______ | ___ | _____ | _______ |  | ____ | ____ | ___________| GUI+HOME|G+PGDN|G+PGUP|G+END  | _________ |
+ * | ____       | ____  |  ____ | _______ | ___ | _____ | _______ |  | ____ | ____ | ___________| GUI+← | GUI+↓ | GUI+↑ | GUI+→ | _________ |
  * `-----------------------+-------+-------+-------+-------+------|  |------+------+------------+---------+------+------+-------+-----------'
  *                         | _____ | _____ | _____ | _____ | ____ |  | ____ | ____ | ____ | ____ | ____ |
  *                         |       |       |       |       |      |  |      |      |      |      |      |
  *                         `--------------------------------------'  `----------------------------------'
 */
 [WINM] = LAYOUT(
-  TO(BASE),  LCG(KC_LEFT), LCG(KC_DOWN), LCG(KC_UP), LCG(KC_RGHT), KC_NU,                                    HYPR(KC_LEFT), LAG(KC_LEFT),  LAG(KC_DOWN),  LAG(KC_UP),    LAG(KC_RGHT),  HYPR(KC_RGHT),
-  KC_TRNS,   KC_LALT,      KC_LCTL,      KC_LSFT,    KC_LGUI,      LCG(DE_U),                                 KC_TRNS,       LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP),   LGUI(KC_RGHT), KC_NU,
-  KC_TRNS,   KC_NU,        KC_NU,        KC_NU,      KC_NU,        KC_NU,  KC_NU,  KC_NU,    KC_NU,  KC_NU,  KC_NU,         LGUI(KC_HOME), LGUI(KC_PGDN), LGUI(KC_PGUP), LGUI(KC_END),  KC_NU,
+  TO(BASE),  LCG(KC_LEFT), KC_NU,        KC_NU,      LCG(KC_RGHT), KC_NU,                                    HYPR(KC_LEFT), LAG(KC_LEFT),  LAG(KC_DOWN),  LAG(KC_UP),    LAG(KC_RGHT),  HYPR(KC_RGHT),
+  KC_TRNS,   KC_LALT,      KC_LCTL,      KC_LSFT,    KC_LGUI,      LCG(DE_U),                                KC_TRNS,       KC_LGUI,       KC_LSFT,       KC_LCTL,       KC_LALT,       KC_NU,
+  KC_TRNS,   KC_NU,        KC_NU,        KC_NU,      KC_NU,        KC_NU,  KC_NU,  KC_NU,    KC_NU,  KC_NU,  KC_NU,         LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP),   LGUI(KC_RGHT), KC_NU,
                            KC_TRNS,      KC_TRNS,    KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,       KC_TRNS
 ),
 
