@@ -166,8 +166,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 [MOUR] = LAYOUT(
   TO(BASE), KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,                                 KC_NU, KC_NU,   KC_NU,   KC_NU,   KC_NU,    KC_NU,
-  LLOCK, KC_NU,  KC_NU,   KC_NU,   KC_NU,   KC_NU,                                 KC_NU, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, KC_NU,
-  TO(BASE), KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU,
+  LLOCK,    KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_NU,                                 KC_NU, MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,  KC_NU,
+  TO(BASE), KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU,
                       KC_NP,   KC_NP,  KC_NU,   KC_NU, KC_NU, MS_BTN1, MS_BTN3, MS_BTN2, KC_NP, KC_NP
 ),
 
@@ -187,9 +187,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                            `----------------------------- ----'  `----------------------------------'
 */
 [MOURI] = LAYOUT(
-  TO(BASE), KC_NU,   KC_NU,   KC_NU,   KC_NU,    KC_NU,                                 KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
-  LLOCK,    MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, KC_NU,                                 KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
-  TO(BASE), MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU,   KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, KC_NU,
+  TO(BASE), KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,                                 KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
+  LLOCK,    MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, KC_NU,                                 KC_NU,   KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, KC_NU,
+  TO(BASE), MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NU, KC_NU, KC_NU,   KC_NU,   KC_NU, KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,
                               KC_NP, KC_NP, MS_BTN2, MS_BTN3, MS_BTN1, MS_BTN1, MS_BTN3, MS_BTN2, KC_NP, KC_TRNS
 ),
 
