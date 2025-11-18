@@ -8,7 +8,6 @@
 - NAV + mods combo (alt/ctl/shift) - order independent
 - right side thumb gated multi-mod combos
 - leader + key => ctl+alt+shft+gui+key
-- get rid of win + space combo
 - add combo for replacing win + s and win + p
 
 ## combos

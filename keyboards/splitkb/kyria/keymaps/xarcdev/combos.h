@@ -50,7 +50,6 @@ enum combo_events  {
     LEADER_COMBO,
 
     // Specific modifier + key combos (Hands Down Gold)
-    GUI_SPACE,           // D + Space = GUI+Space
     GUI_TAB,             // D + Tab = GUI+Tab
     SHT_TAB,             // N + Tab = Shift+Tab
     ALT_TAB,             // R + Tab = Alt+Tab
@@ -166,7 +165,6 @@ const uint16_t PROGMEM ph_combo[] = { DE_P, DE_M, COMBO_END };              // P
 const uint16_t PROGMEM leader_combo[] = { UC_TL3, UC_TR2, COMBO_END };      // Space + Backspace = Leader
 
 // Specific modifier + key combos (Hands Down Gold)
-const uint16_t PROGMEM gui_space_combo[] = { GUI_D_HD, UC_TL3, COMBO_END };
 const uint16_t PROGMEM gui_tab_combo[] = { GUI_D_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM sht_tab_combo[] = { SHT_N_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM alt_tab_combo[] = { ALT_R_HD, UC_TL4, COMBO_END };
@@ -289,7 +287,6 @@ combo_t key_combos[COMBO_LENGTH] = {
     [LEADER_COMBO] = COMBO(leader_combo, QK_LEADER),
 
     // Specific modifier + key combos
-    [GUI_SPACE] = COMBO(gui_space_combo, LGUI(KC_SPC)),
     [GUI_TAB] = COMBO_ACTION(gui_tab_combo),
     [SHT_TAB] = COMBO_ACTION(sht_tab_combo),
     [ALT_TAB] = COMBO_ACTION(alt_tab_combo),
@@ -734,7 +731,6 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
             return 20;
 
         // Modifier + key combos (single modifier)
-        case GUI_SPACE:
         case GUI_TAB:
         case SHT_TAB:
         case CTL_TAB:
@@ -833,7 +829,6 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case PH_COMBO:
 
         // Modifier + key combos (single modifier)
-        case GUI_SPACE:
         case GUI_TAB:
         case SHT_TAB:
         case CTL_TAB:
