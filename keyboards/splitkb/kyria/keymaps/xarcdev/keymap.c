@@ -535,14 +535,15 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 #ifdef ADAPTIVE_KEYS_ENABLE
 // Helper function to check if a key could start an adaptive sequence
-bool is_adaptive_start_key(uint16_t keycode) {
+static bool is_adaptive_start_key(uint16_t keycode) {
     return (keycode == DE_G || keycode == DE_P || keycode == DE_B ||
             keycode == DE_D || keycode == DE_COMM || keycode == DE_M);
 }
+#endif
 
-// Adaptive Keys - Hands Down Gold
+// Custom keycodes and adaptive keys handler
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // Handle custom keycodes
+    // Handle custom keycodes (always active)
     switch (keycode) {
         case BACKTICK:
             if (record->event.pressed) {
@@ -567,6 +568,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 
+#ifdef ADAPTIVE_KEYS_ENABLE
+    // Adaptive Keys - Hands Down Gold
     if (record->event.pressed) {
         uint16_t elapsed = timer_elapsed(adaptive_key_timer);
 
@@ -658,7 +661,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
     }
+#endif
+
     return true;
 }
-#endif
 
