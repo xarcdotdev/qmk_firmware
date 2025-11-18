@@ -206,7 +206,7 @@ const uint16_t PROGMEM ae_umlaut_combo[] = { DE_A, DE_E, COMBO_END };       // A
 const uint16_t PROGMEM qu_combo[] = { DE_G, DE_P, COMBO_END };              // G + P = Q
 
 // Combos for efficiency
-const uint16_t PROGMEM gj_combo[] = { DE_G, DE_J, COMBO_END };              // G + J = Escape
+const uint16_t PROGMEM gj_combo[] = { DE_G, DE_J, COMBO_END };              // G + J = Alt+F4
 
 // H-digraph combos (Hands Down Gold recommended)
 const uint16_t PROGMEM th_combo[] = { DE_D, DE_N, COMBO_END };              // D + N = TH
@@ -594,7 +594,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         // Combo for efficency
         case GJ_COMBO:
             if (pressed) {
-                tap_code16(KC_ESC);
+                tap_code16(LALT(KC_F4));
             }
             break;
 
@@ -1121,7 +1121,7 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         case NAV_CTL:
         case NAV_SHT:
         case NAV_GUI:
-            return 50;
+            return 20;
 
         // NAV layer + two modifier combos (3 keys)
         case NAV_GUI_SHT:
