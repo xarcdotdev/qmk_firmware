@@ -9,12 +9,12 @@
 ***********************/
 //Name of combos
 enum combo_events  {
-    COMBO_CTL_C,
-    COMBO_CTL_V,
-    COMBO_CTL_X,
-    COMBO_CTL_S,
-    COMBO_CTL_Z,
-    COMBO_SHT_CTL_Z,
+    // COMBO_CTL_C,
+    // COMBO_CTL_V,
+    // COMBO_CTL_X,
+    // COMBO_CTL_S,
+    // COMBO_CTL_Z,
+    // COMBO_SHT_CTL_Z,
 
     WIN_CTL_LEFT,
     WIN_CTL_RIGHT,
@@ -136,6 +136,14 @@ enum combo_events  {
     // Thumb-gated four-modifier combo (UC_TL2 + 4 homerow keys) - Hands Down Gold RIGHT SIDE
     HRM_ALL_MODS_R,    // UC_TL2 + A + I + E + H = GUI+Ctrl+Shift+Alt
 
+    // Simple cut/copy/paste combos
+    COMBO_CUT,         // Z + F = Cut
+    COMBO_CUT_SHT,     // Z + F + L = Shift+Cut
+    COMBO_COPY,        // F + C = Copy
+    COMBO_COPY_SHT,    // F + C + L = Shift+Copy
+    COMBO_PASTE,       // L + C = Paste
+    COMBO_PASTE_SHT,   // L + C + W = Shift+Paste
+
     // NAV layer + modifier combos (UC_TL3 + left homerow keys) - Hands Down Gold
     // Single modifier + NAV
     NAV_ALT,           // UC_TL3 + R = Alt + Nav layer
@@ -166,12 +174,12 @@ enum combo_events  {
 int COMBO_LEN = COMBO_LENGTH;
 
 //Combo Activation
-const uint16_t PROGMEM copy_combo[]  = { GUI_G, DE_C, COMBO_END };
-const uint16_t PROGMEM paste_combo[] = { GUI_G, DE_V, COMBO_END };
-const uint16_t PROGMEM cut_combo[] = { GUI_G, DE_X, COMBO_END };
-const uint16_t PROGMEM save_combo[]  = { GUI_G, DE_S, COMBO_END };
-const uint16_t PROGMEM undo_combo[]  = { GUI_G, DE_Z, COMBO_END };
-const uint16_t PROGMEM redo_combo[]  = { GUI_G, SHT_W, DE_Z, COMBO_END };
+// const uint16_t PROGMEM copy_combo[]  = { GUI_G, DE_C, COMBO_END };
+// const uint16_t PROGMEM paste_combo[] = { GUI_G, DE_V, COMBO_END };
+// const uint16_t PROGMEM cut_combo[] = { GUI_G, DE_X, COMBO_END };
+// const uint16_t PROGMEM save_combo[]  = { GUI_G, DE_S, COMBO_END };
+// const uint16_t PROGMEM undo_combo[]  = { GUI_G, DE_Z, COMBO_END };
+// const uint16_t PROGMEM redo_combo[]  = { GUI_G, SHT_W, DE_Z, COMBO_END };
 
 const uint16_t PROGMEM win_ctrl_left_combo[] = { ALT_Z, GUI_G, KC_LEFT, COMBO_END };
 const uint16_t PROGMEM win_ctrl_right_combo[] = { ALT_Z, GUI_G, KC_RGHT, COMBO_END };
@@ -324,15 +332,23 @@ const uint16_t PROGMEM nav_ctl_sht_alt_combo[] = { UC_TL3, CTL_S_HD, SHT_N_HD, A
 // Four modifiers + NAV
 const uint16_t PROGMEM nav_all_mods_combo[] = { UC_TL3, GUI_D_HD, CTL_S_HD, SHT_N_HD, ALT_R_HD, COMBO_END };
 
+// Simple cut/copy/paste combos
+const uint16_t PROGMEM cut_zf_combo[] = { DE_Z, DE_F, COMBO_END };
+const uint16_t PROGMEM cut_sht_zfl_combo[] = { DE_Z, DE_F, DE_L, COMBO_END };
+const uint16_t PROGMEM copy_fc_combo[] = { DE_F, DE_C, COMBO_END };
+const uint16_t PROGMEM copy_sht_fcl_combo[] = { DE_F, DE_C, DE_L, COMBO_END };
+const uint16_t PROGMEM paste_lc_combo[] = { DE_L, DE_C, COMBO_END };
+const uint16_t PROGMEM paste_sht_lcw_combo[] = { DE_L, DE_C, DE_W, COMBO_END };
+
 
 //Combo Action
 combo_t key_combos[COMBO_LENGTH] = {
-    [COMBO_CTL_C]  = COMBO(copy_combo, LCTL(DE_C)),
-    [COMBO_CTL_V] = COMBO(paste_combo, LCTL(DE_V)),
-    [COMBO_CTL_X] = COMBO(cut_combo, LCTL(DE_X)),
-    [COMBO_CTL_S]  = COMBO(save_combo, LCTL(DE_S)),
-    [COMBO_CTL_Z] = COMBO(undo_combo, LCTL(DE_Z)),
-    [COMBO_SHT_CTL_Z] = COMBO(redo_combo, LCTL(LSFT(DE_Z))),
+    // [COMBO_CTL_C]  = COMBO(copy_combo, LCTL(DE_C)),
+    // [COMBO_CTL_V] = COMBO(paste_combo, LCTL(DE_V)),
+    // [COMBO_CTL_X] = COMBO(cut_combo, LCTL(DE_X)),
+    // [COMBO_CTL_S]  = COMBO(save_combo, LCTL(DE_S)),
+    // [COMBO_CTL_Z] = COMBO(undo_combo, LCTL(DE_Z)),
+    // [COMBO_SHT_CTL_Z] = COMBO(redo_combo, LCTL(LSFT(DE_Z))),
     [WIN_CTL_LEFT] = COMBO(win_ctrl_left_combo, LGUI(LCTL(KC_LEFT))),
     [WIN_CTL_RIGHT] = COMBO(win_ctrl_right_combo, LGUI(LCTL(KC_RGHT))),
     [ALT_UP] = COMBO(alt_up_combo, LALT(KC_UP)),
@@ -468,6 +484,14 @@ combo_t key_combos[COMBO_LENGTH] = {
     [NAV_CTL_SHT_ALT] = COMBO_ACTION(nav_ctl_sht_alt_combo),
     // Four modifiers + NAV
     [NAV_ALL_MODS] = COMBO_ACTION(nav_all_mods_combo),
+
+    // Simple cut/copy/paste combos
+    [COMBO_CUT] = COMBO(cut_zf_combo, LCTL(DE_X)),
+    [COMBO_CUT_SHT] = COMBO(cut_sht_zfl_combo, LSFT(LCTL(DE_X))),
+    [COMBO_COPY] = COMBO(copy_fc_combo, LCTL(DE_C)),
+    [COMBO_COPY_SHT] = COMBO(copy_sht_fcl_combo, LSFT(LCTL(DE_C))),
+    [COMBO_PASTE] = COMBO(paste_lc_combo, LCTL(DE_V)),
+    [COMBO_PASTE_SHT] = COMBO(paste_sht_lcw_combo, LSFT(LCTL(DE_V))),
 };
 
 
@@ -1258,6 +1282,16 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         // NAV layer + four modifier combo (5 keys)
         case NAV_ALL_MODS:
             return 100;
+
+        // Simple cut/copy/paste combos
+        case COMBO_CUT:
+        case COMBO_COPY:
+        case COMBO_PASTE:
+            return 30;  // 2 keys
+        case COMBO_CUT_SHT:
+        case COMBO_COPY_SHT:
+        case COMBO_PASTE_SHT:
+            return 50;  // 3 keys
     }
     return COMBO_TERM;  // Default 40ms from config.h
 }
@@ -1266,7 +1300,6 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
     switch (combo_index) {
         // Standard combos
         case RWIN_SHT_S:
-        case COMBO_SHT_CTL_Z:
         case WIN_CTL_LEFT:
         case WIN_CTL_RIGHT:
         case BSPC_LSFT_CLEAR:

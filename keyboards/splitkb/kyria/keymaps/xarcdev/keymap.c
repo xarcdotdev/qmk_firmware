@@ -79,8 +79,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NAVR] = LAYOUT(
   TO(BASE),  KC_NU,   KC_NU,   KC_NU,   KC_NU,   KC_NU,                                KC_UNDO_C, KC_PASTE_C, KC_COPY_C, KC_CUT_C,  KC_REDO_C, KC_NU,
-  LLOCK,  KC_LALT,   KC_LCTL,   KC_LSFT,   KC_LGUI,   KC_NU,                           KC_CAPS,   KC_LEFT,    KC_DOWN,   KC_UP,     KC_RGHT,   KC_NU,
-  TO(BASE),  KC_NU, KC_NU, KC_NU, KC_NU, KC_NU, KC_NU, KC_NU,  KC_NU,   KC_NU, KC_INS,    KC_HOME,    KC_PGDN,   KC_PGUP,   KC_END,    KC_NU,
+  LLOCK,     KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_NU,                           KC_CAPS,   KC_LEFT,    KC_DOWN,   KC_UP,     KC_RGHT,   KC_NU,
+  TO(BASE),  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NU, KC_NU, KC_NU,  KC_NU,   KC_NU, KC_INS,    KC_HOME,    KC_PGDN,   KC_PGUP,   KC_END,    KC_NU,
                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS, KC_TRNS
 ),
 
@@ -118,14 +118,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | ____       | ____  |  ____ | _______ | ___ | _____ | _______ |  | ____ | ____ | ___________| GUI+← | GUI+↓ | GUI+↑ | GUI+→ | _________ |
  * `-----------------------+-------+-------+-------+-------+------|  |------+------+------------+---------+------+------+-------+-----------'
  *                         | _____ | _____ | _____ | _____ | ____ |  | ____ | ____ | ____ | ____ | ____ |
- *                         |       |       |       |       |      |  |      |      |      |      |      |
+ *                         |       |       |       |       |      |  |      |      |Delete|      |      |
  *                         `--------------------------------------'  `----------------------------------'
 */
 [WINM] = LAYOUT(
   TO(BASE),  LCG(KC_LEFT), KC_NU,        KC_NU,      LCG(KC_RGHT), KC_NU,                                    HYPR(KC_LEFT), LAG(KC_LEFT),  LAG(KC_DOWN),  LAG(KC_UP),    LAG(KC_RGHT),  HYPR(KC_RGHT),
   KC_TRNS,   KC_LALT,      KC_LCTL,      KC_LSFT,    KC_LGUI,      LCG(DE_U),                                KC_TRNS,       KC_LGUI,       KC_LSFT,       KC_LCTL,       KC_LALT,       KC_NU,
   KC_TRNS,   KC_NU,        KC_NU,        KC_NU,      KC_NU,        KC_NU,  KC_NU,  KC_NU,    KC_NU,  KC_NU,  KC_NU,         LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP),   LGUI(KC_RGHT), KC_NU,
-                           KC_TRNS,      KC_TRNS,    KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,       KC_TRNS
+                           KC_TRNS,      KC_TRNS,    KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_DEL,       KC_TRNS
 ),
 
 
@@ -273,7 +273,7 @@ TO(BASE), DE_HASH, TD(TD_CURNCY), DE_LABK, DE_RABK, DE_ASTR, KC_NU, KC_NU,  KC_N
  *                       |      | Enter  | Escape| Space | Tab  |  | Enter| Bspace   | Delete |        |       |
  *                       `--------------------------------------'  `-------------------------------------------'
  */
-    [QWERTY] = LAYOUT(
+[QWERTY] = LAYOUT(
     TO(GAME), DE_Q,  DE_W,  DE_E,  DE_R, DE_T,                                                                  KC_Y, KC_U,  KC_I,  KC_O,  KC_P,  KC_PIPE,
     KC_LSFT,  DE_A,  DE_S,  DE_D,  DE_F, DE_G,                                                                  DE_H, DE_J, DE_K, DE_L, DE_X, DE_QUOT,
     TO(BASE), ALT_Z_Q, CTL_X, SHT_C, GUI_V, DE_B, KC_NU, KC_NU,                        KC_NU,     KC_NU,  DE_N,  GUI_M, SHT_COMM, CTL_DOT, ALT_SLSH, DE_MINS,

@@ -5,7 +5,6 @@
 
 - workspace combo: t + Num + # => gui + #
 - NAV layer: cut/copy/paste combos (w/ shift variants)
-- NAV + mods combo (alt/ctl/shift) - order independent
 - leader + key => ctl+alt+shft+gui+key
 - add combo for replacing win + s and win + p
 
