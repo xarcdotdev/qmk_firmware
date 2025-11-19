@@ -48,6 +48,7 @@ enum combo_events  {
     SH_COMBO,
     GH_COMBO,
     PH_COMBO,
+    SCH_COMBO,
 
     // Leader key combo
     LEADER_COMBO,
@@ -209,11 +210,12 @@ const uint16_t PROGMEM qu_combo[] = { DE_G, DE_P, COMBO_END };              // G
 const uint16_t PROGMEM gj_combo[] = { DE_G, DE_J, COMBO_END };              // G + J = Alt+F4
 
 // H-digraph combos (Hands Down Gold recommended)
-const uint16_t PROGMEM th_combo[] = { DE_D, DE_N, COMBO_END };              // D + N = TH
-const uint16_t PROGMEM ch_combo[] = { GUI_D_HD, SHT_N_HD, COMBO_END };            // D + N = CH
+const uint16_t PROGMEM th_combo[] = { ALT_R_HD, GUI_D_HD, COMBO_END };      // R + D = TH
+const uint16_t PROGMEM ch_combo[] = { GUI_D_HD, SHT_N_HD, COMBO_END };      // D + N = CH
 const uint16_t PROGMEM sh_combo[] = { DE_S, DE_N, COMBO_END };              // S + N = SH
 const uint16_t PROGMEM gh_combo[] = { DE_G, DE_M, COMBO_END };              // G + M = GH
 const uint16_t PROGMEM ph_combo[] = { DE_P, DE_M, COMBO_END };              // P + M = PH
+const uint16_t PROGMEM sch_combo[] = { ALT_R_HD, CTL_S_HD, SHT_N_HD, COMBO_END };  // R + S + N = SCH
 
 // Leader key combo
 const uint16_t PROGMEM leader_combo[] = { UC_TL3, UC_TR2, COMBO_END };      // Space + Backspace = Leader
@@ -223,7 +225,7 @@ const uint16_t PROGMEM gui_tab_combo[] = { GUI_D_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM sht_tab_combo[] = { SHT_N_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM alt_tab_combo[] = { ALT_R_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM ctl_tab_combo[] = { CTL_S_HD, UC_TL4, COMBO_END };
-const uint16_t PROGMEM alt_space_combo[] = { ALT_R_HD, UC_TL3, COMBO_END };
+const uint16_t PROGMEM alt_space_combo[] = { DE_R, UC_TL3, COMBO_END };
 
 const uint16_t PROGMEM alt_up_combo[] = { ALT_R_HD, KC_UP, COMBO_END };
 const uint16_t PROGMEM alt_down_combo[] = { ALT_R_HD, KC_DOWN, COMBO_END };
@@ -389,6 +391,7 @@ combo_t key_combos[COMBO_LENGTH] = {
     [SH_COMBO] = COMBO_ACTION(sh_combo),
     [GH_COMBO] = COMBO_ACTION(gh_combo),
     [PH_COMBO] = COMBO_ACTION(ph_combo),
+    [SCH_COMBO] = COMBO_ACTION(sch_combo),
 
     // Leader key combo
     [LEADER_COMBO] = COMBO(leader_combo, QK_LEADER),
@@ -626,6 +629,13 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         case PH_COMBO:
             if (pressed) {
                 tap_code16(DE_P);
+                tap_code16(DE_H);
+            }
+            break;
+        case SCH_COMBO:
+            if (pressed) {
+                tap_code16(DE_S);
+                tap_code16(DE_C);
                 tap_code16(DE_H);
             }
             break;
@@ -1021,11 +1031,15 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         case GH_COMBO:
         case PH_COMBO:
             return 20;
+        case SCH_COMBO:
+            return 30;  // 3 keys
 
         // Modifier + key combos (single modifier)
         case GUI_TAB:
         case SHT_TAB:
+        case ALT_TAB:
         case CTL_TAB:
+        case ALT_SPACE:
             return 40;
 
         // Two-modifier + Space combos
@@ -1178,6 +1192,7 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case SH_COMBO:
         case GH_COMBO:
         case PH_COMBO:
+        case SCH_COMBO:
 
         // Modifier + key combos (single modifier)
         case GUI_TAB:
