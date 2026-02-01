@@ -26,18 +26,18 @@
 #define KC_COPY_C LCTL(DE_C)
 #define KC_PASTE_C LCTL(DE_V)
 
-// Left-hand Bottom row mods BUTECK (zvwg)
-// Now plain keys - modifiers activated via UC_TL2 + key combos
-#define ALT_Z DE_Z
-#define CTL_V DE_V
-#define SHT_W DE_W
-#define GUI_G DE_G
+// // Left-hand Bottom row mods BUTECK (zvwg)
+// // Now plain keys - modifiers activated via UC_TL2 + key combos
+// #define ALT_Z DE_Z
+// #define CTL_V DE_V
+// #define SHT_W DE_W
+// #define GUI_G DE_G
 
-// Right-hand Bottom row mods BUTECK (äöyk)
-#define GUI_AE DE_AE
-#define SHT_OE DE_OE
-#define CTL_Y DE_Y
-#define ALT_K DE_K
+// // Right-hand Bottom row mods BUTECK (äöyk)
+// #define GUI_AE DE_AE
+// #define SHT_OE DE_OE
+// #define CTL_Y DE_Y
+// #define ALT_K DE_K
 
 /*****************************/
 // Left-hand Home row mods HANDS DOWN GOLD (middle row: R S N D)
