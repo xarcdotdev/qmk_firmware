@@ -115,13 +115,13 @@ enum combo_events  {
 };
 int COMBO_LEN = COMBO_LENGTH;
 
-//Combo Activation
+//Combo Activation wenn ich es 
 
 // Hands Down Gold combos
 const uint16_t PROGMEM semicolon_combo[] = { DE_COMM, DE_DOT, COMBO_END };  // , + . = ;
 const uint16_t PROGMEM colon_combo[] = { DE_DOT, DE_DQUO, COMBO_END };      // . + " = :
 const uint16_t PROGMEM underscore_combo[] = { DE_DQUO, DE_QUOT, COMBO_END };   // " + ' = _
-const uint16_t PROGMEM ae_umlaut_combo[] = { DE_A, DE_E, COMBO_END };       // A + E = Ä
+const uint16_t PROGMEM ae_umlaut_combo[] = { DE_OE, DE_A, COMBO_END };       // A + E = Ä
 const uint16_t PROGMEM qu_combo[] = { DE_G, DE_P, COMBO_END };              // G + P = Q
 
 // Combos for efficiency
@@ -706,6 +706,7 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case SEMICOLON_COMBO:
         case COLON_COMBO:
         case UNDERSCORE_COMBO:
+        case AE_UMLAUT: // currently ö is tapdance so it will not work probably
 
         // H-digraph combos
         case TH_COMBO:

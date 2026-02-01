@@ -29,10 +29,12 @@ enum custom_keycodes {
 **********/
 enum {
     TD_CURNCY,
+    TD_UMLAUT,
 };
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_CURNCY] = ACTION_TAP_DANCE_DOUBLE(DE_DLR, DE_EURO),
+    [TD_UMLAUT] = ACTION_TAP_DANCE_DOUBLE(DE_OE, DE_AE),
 };
 
 /* ********
@@ -57,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 [BASE] = LAYOUT(
   TO(QWERTY), DE_J,  DE_G,  DE_M,  DE_P,  DE_V,                                    DE_UE, DE_COMM,  DE_DOT, DE_DQUO, DE_QUOT, DE_SS,
-  KC_ESC,   DE_R,  DE_S,  DE_N,  DE_D,  DE_B,                                    DE_OE, DE_A,    DE_E,    DE_I,    DE_H,    DE_X,
+  KC_ESC,   DE_R,  DE_S,  DE_N,  DE_D,  DE_B,                                    TD(TD_UMLAUT), DE_A,    DE_E,    DE_I,    DE_H,    DE_X,
   TO(BASE), DE_Z,  DE_F,  DE_L,  DE_C,  DE_W,  KC_NU, KC_NU,   KC_NU,  KC_NU,    DE_Q, DE_U,   DE_O,   DE_Y,   DE_K,   DE_MINS,
                        KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
 ),
