@@ -40,7 +40,7 @@ enum combo_events  {
     SHT_TAB,             // N + Tab = Shift+Tab
     ALT_TAB,             // R + Tab = Alt+Tab
     CTL_TAB,             // S + Tab = Ctrl+Tab
-    ALT_SPACE,           // R + Space = Alt+Space
+    // ALT_SPACE,           // R + Space = Alt+Space
     SHT_CTL_TAB,         // S + N + Tab = Shift+Ctrl+Tab
 
     // // Two-modifier + Space combos
@@ -143,7 +143,7 @@ const uint16_t PROGMEM gui_tab_combo[] = { GUI_D_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM sht_tab_combo[] = { SHT_N_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM alt_tab_combo[] = { ALT_R_HD, UC_TL4, COMBO_END };
 const uint16_t PROGMEM ctl_tab_combo[] = { CTL_S_HD, UC_TL4, COMBO_END };
-const uint16_t PROGMEM alt_space_combo[] = { DE_R, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM alt_space_combo[] = { DE_R, UC_TL3, COMBO_END };
 
 const uint16_t PROGMEM alt_up_combo[] = { ALT_R_HD, KC_UP, COMBO_END };
 const uint16_t PROGMEM alt_down_combo[] = { ALT_R_HD, KC_DOWN, COMBO_END };
@@ -256,7 +256,7 @@ combo_t key_combos[COMBO_LENGTH] = {
     [SHT_TAB] = COMBO_ACTION(sht_tab_combo),
     [ALT_TAB] = COMBO_ACTION(alt_tab_combo),
     [CTL_TAB] = COMBO_ACTION(ctl_tab_combo),
-    [ALT_SPACE] = COMBO(alt_space_combo, LALT(KC_SPC)),
+    // [ALT_SPACE] = COMBO(alt_space_combo, LALT(KC_SPC)),
 
     // Two-modifier + key combos
     [SHT_CTL_TAB] = COMBO_ACTION(sht_ctl_tab_combo),
@@ -605,8 +605,8 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         case SHT_TAB:
         case ALT_TAB:
         case CTL_TAB:
-        case ALT_SPACE:
-            return 40;
+        // case ALT_SPACE:
+            // return 40;
 
         // // Two-modifier + Space combos
         // case GUI_SHT_SPACE:
@@ -714,7 +714,7 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case GUI_TAB:
         case SHT_TAB:
         case CTL_TAB:
-        case ALT_SPACE:
+        // case ALT_SPACE:
         case ALT_F4_COMBO:
         case SHT_CTL_TAB:
 

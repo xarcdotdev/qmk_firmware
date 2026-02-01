@@ -379,18 +379,14 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 
 /* ********
 * HOLD ON OTHER KEY PRESS
-* Immediately activate layer when another key is pressed (for thumb keys)
+* Immediately activate layer when another key is pressed (for ESC-based thumb keys only)
+* Not enabled for Space/Backspace/Enter to allow normal rolling while typing
 **********/
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        // Thumb cluster layer-tap keys - activate layer immediately
-        case UC_TL1:
-        case UC_TL2:
-        case UC_TL3:
-        case UC_TL4:
-        case UC_TR1:
-        case UC_TR2:
-        case UC_TR3:
+        // Only ESC-based thumb keys - less common to roll during typing
+        case UC_TL1: // INVRT/ESC
+        case UC_TL2: // WINM/ESC
             return true;
         default:
             return false;
