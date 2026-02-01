@@ -44,6 +44,9 @@
 #define PERMISSIVE_HOLD
 // #define PERMISSIVE_HOLD_PER_KEY
 
+// Immediately activate hold when another key is pressed (per-key for thumb keys)
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+
 // Bilateral Combos for Shift (Homerow Rollover)
 // #define BILATERAL_COMBINATIONS 100
 
