@@ -76,16 +76,6 @@ enum combo_events  {
     CTL_SHT_ALT_SPACE,      // S + N + R + Space = Ctrl+Shift+Alt+Space
 
     // Thumb-gated HRM combos - Single modifiers
-    // BUTECK layout
-    HRM_ALT_Z,
-    HRM_CTL_V,
-    HRM_SHT_W,
-    HRM_GUI_G,
-    HRM_GUI_AE,
-    HRM_SHT_OE,
-    HRM_CTL_Y,
-    HRM_ALT_K,
-
     // Hands Down Gold layout (middle row: R S N D | A E I H)
     HRM_ALT_R_HD,
     HRM_CTL_S_HD,
@@ -95,16 +85,6 @@ enum combo_events  {
     HRM_SHT_E_HD,
     HRM_CTL_I_HD,
     HRM_ALT_H_HD,
-
-    // QWERTY layout
-    HRM_ALT_Z_Q,
-    HRM_CTL_X_Q,
-    HRM_SHT_C_Q,
-    HRM_GUI_V_Q,
-    HRM_GUI_M_Q,
-    HRM_SHT_COMM_Q,
-    HRM_CTL_DOT_Q,
-    HRM_ALT_SLSH_Q,
 
     // Thumb-gated multi-modifier combos (UC_TL2 + 2 homerow keys) - Hands Down Gold
     HRM_GUI_SHT,     // UC_TL2 + D + N = GUI+Shift
@@ -228,16 +208,6 @@ const uint16_t PROGMEM gui_ctl_alt_space_combo[] = { GUI_D_HD, CTL_S_HD, ALT_R_H
 const uint16_t PROGMEM ctl_sht_alt_space_combo[] = { CTL_S_HD, SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
 
 // Thumb-gated HRM combos - Single modifiers
-// BUTECK layout
-const uint16_t PROGMEM hrm_alt_z_combo[] = { UC_TL2, ALT_Z, COMBO_END };
-const uint16_t PROGMEM hrm_ctl_v_combo[] = { UC_TL2, CTL_V, COMBO_END };
-const uint16_t PROGMEM hrm_sht_w_combo[] = { UC_TL2, SHT_W, COMBO_END };
-const uint16_t PROGMEM hrm_gui_g_combo[] = { UC_TL2, GUI_G, COMBO_END };
-const uint16_t PROGMEM hrm_gui_ae_combo[] = { UC_TL2, GUI_AE, COMBO_END };
-const uint16_t PROGMEM hrm_sht_oe_combo[] = { UC_TL2, SHT_OE, COMBO_END };
-const uint16_t PROGMEM hrm_ctl_y_combo[] = { UC_TL2, CTL_Y, COMBO_END };
-const uint16_t PROGMEM hrm_alt_k_combo[] = { UC_TL2, ALT_K, COMBO_END };
-
 // Hands Down Gold layout
 const uint16_t PROGMEM hrm_alt_r_hd_combo[] = { UC_TL2, ALT_R_HD, COMBO_END };
 const uint16_t PROGMEM hrm_ctl_s_hd_combo[] = { UC_TL2, CTL_S_HD, COMBO_END };
@@ -247,16 +217,6 @@ const uint16_t PROGMEM hrm_gui_a_hd_combo[] = { UC_TL2, GUI_A_HD, COMBO_END };
 const uint16_t PROGMEM hrm_sht_e_hd_combo[] = { UC_TL2, SHT_E_HD, COMBO_END };
 const uint16_t PROGMEM hrm_ctl_i_hd_combo[] = { UC_TL2, CTL_I_HD, COMBO_END };
 const uint16_t PROGMEM hrm_alt_h_hd_combo[] = { UC_TL2, ALT_H_HD, COMBO_END };
-
-// QWERTY layout
-const uint16_t PROGMEM hrm_alt_z_q_combo[] = { UC_TL2, ALT_Z_Q, COMBO_END };
-const uint16_t PROGMEM hrm_ctl_x_q_combo[] = { UC_TL2, CTL_X, COMBO_END };
-const uint16_t PROGMEM hrm_sht_c_q_combo[] = { UC_TL2, SHT_C, COMBO_END };
-const uint16_t PROGMEM hrm_gui_v_q_combo[] = { UC_TL2, GUI_V, COMBO_END };
-const uint16_t PROGMEM hrm_gui_m_q_combo[] = { UC_TL2, GUI_M, COMBO_END };
-const uint16_t PROGMEM hrm_sht_comm_q_combo[] = { UC_TL2, SHT_COMM, COMBO_END };
-const uint16_t PROGMEM hrm_ctl_dot_q_combo[] = { UC_TL2, CTL_DOT, COMBO_END };
-const uint16_t PROGMEM hrm_alt_slsh_q_combo[] = { UC_TL2, ALT_SLSH, COMBO_END };
 
 // Thumb-gated multi-modifier combos (UC_TL2 + 2 homerow keys) - Hands Down Gold
 const uint16_t PROGMEM hrm_gui_sht_combo[] = { UC_TL2, GUI_D_HD, SHT_N_HD, COMBO_END };
@@ -372,17 +332,7 @@ combo_t key_combos[COMBO_LENGTH] = {
     [GUI_CTL_ALT_SPACE] = COMBO(gui_ctl_alt_space_combo, LGUI(LCTL(LALT(KC_SPC)))),
     [CTL_SHT_ALT_SPACE] = COMBO(ctl_sht_alt_space_combo, LCTL(LSFT(LALT(KC_SPC)))),
 
-    // Thumb-gated HRM combos - BUTECK layout (One-Shot Modifiers)
-    [HRM_ALT_Z] = COMBO_ACTION(hrm_alt_z_combo),
-    [HRM_CTL_V] = COMBO_ACTION(hrm_ctl_v_combo),
-    [HRM_SHT_W] = COMBO_ACTION(hrm_sht_w_combo),
-    [HRM_GUI_G] = COMBO_ACTION(hrm_gui_g_combo),
-    [HRM_GUI_AE] = COMBO_ACTION(hrm_gui_ae_combo),
-    [HRM_SHT_OE] = COMBO_ACTION(hrm_sht_oe_combo),
-    [HRM_CTL_Y] = COMBO_ACTION(hrm_ctl_y_combo),
-    [HRM_ALT_K] = COMBO_ACTION(hrm_alt_k_combo),
-
-    // Hands Down Gold layout (One-Shot Modifiers)
+    // Thumb-gated HRM combos - Hands Down Gold layout (One-Shot Modifiers)
     [HRM_ALT_R_HD] = COMBO_ACTION(hrm_alt_r_hd_combo),
     [HRM_CTL_S_HD] = COMBO_ACTION(hrm_ctl_s_hd_combo),
     [HRM_SHT_N_HD] = COMBO_ACTION(hrm_sht_n_hd_combo),
@@ -391,16 +341,6 @@ combo_t key_combos[COMBO_LENGTH] = {
     [HRM_SHT_E_HD] = COMBO_ACTION(hrm_sht_e_hd_combo),
     [HRM_CTL_I_HD] = COMBO_ACTION(hrm_ctl_i_hd_combo),
     [HRM_ALT_H_HD] = COMBO_ACTION(hrm_alt_h_hd_combo),
-
-    // QWERTY layout (One-Shot Modifiers)
-    [HRM_ALT_Z_Q] = COMBO_ACTION(hrm_alt_z_q_combo),
-    [HRM_CTL_X_Q] = COMBO_ACTION(hrm_ctl_x_q_combo),
-    [HRM_SHT_C_Q] = COMBO_ACTION(hrm_sht_c_q_combo),
-    [HRM_GUI_V_Q] = COMBO_ACTION(hrm_gui_v_q_combo),
-    [HRM_GUI_M_Q] = COMBO_ACTION(hrm_gui_m_q_combo),
-    [HRM_SHT_COMM_Q] = COMBO_ACTION(hrm_sht_comm_q_combo),
-    [HRM_CTL_DOT_Q] = COMBO_ACTION(hrm_ctl_dot_q_combo),
-    [HRM_ALT_SLSH_Q] = COMBO_ACTION(hrm_alt_slsh_q_combo),
 
     // Thumb-gated multi-modifier combos - Hands Down Gold (One-Shot Modifiers)
     [HRM_GUI_SHT] = COMBO_ACTION(hrm_gui_sht_combo),
@@ -572,49 +512,33 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             break;
 
         // Thumb-gated HRM combos - One-Shot Modifiers
-        // ALT modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_ALT_Z:
-        case HRM_ALT_K:
+        // ALT modifiers - Hands Down Gold
         case HRM_ALT_R_HD:
         case HRM_ALT_H_HD:
-        case HRM_ALT_Z_Q:
-        case HRM_ALT_SLSH_Q:
             if (pressed) {
                 set_oneshot_mods(MOD_BIT(KC_LALT));
             }
             break;
 
-        // CTRL modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_CTL_V:
-        case HRM_CTL_Y:
+        // CTRL modifiers - Hands Down Gold
         case HRM_CTL_S_HD:
         case HRM_CTL_I_HD:
-        case HRM_CTL_X_Q:
-        case HRM_CTL_DOT_Q:
             if (pressed) {
                 set_oneshot_mods(MOD_BIT(KC_LCTL));
             }
             break;
 
-        // SHIFT modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_SHT_W:
-        case HRM_SHT_OE:
+        // SHIFT modifiers - Hands Down Gold
         case HRM_SHT_N_HD:
         case HRM_SHT_E_HD:
-        case HRM_SHT_C_Q:
-        case HRM_SHT_COMM_Q:
             if (pressed) {
                 set_oneshot_mods(MOD_BIT(KC_LSFT));
             }
             break;
 
-        // GUI modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_GUI_G:
-        case HRM_GUI_AE:
+        // GUI modifiers - Hands Down Gold
         case HRM_GUI_D_HD:
         case HRM_GUI_A_HD:
-        case HRM_GUI_V_Q:
-        case HRM_GUI_M_Q:
             if (pressed) {
                 set_oneshot_mods(MOD_BIT(KC_LGUI));
             }
@@ -796,34 +720,18 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
             return 80;  // 4 keys
 
         // HRM single modifier combos (thumb + homerow)
-        // ALT modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_ALT_Z:
-        case HRM_ALT_K:
+        // ALT modifiers - Hands Down Gold
         case HRM_ALT_R_HD:
         case HRM_ALT_H_HD:
-        case HRM_ALT_Z_Q:
-        case HRM_ALT_SLSH_Q:
-        // CTRL modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_CTL_V:
-        case HRM_CTL_Y:
+        // CTRL modifiers - Hands Down Gold
         case HRM_CTL_S_HD:
         case HRM_CTL_I_HD:
-        case HRM_CTL_X_Q:
-        case HRM_CTL_DOT_Q:
-        // SHIFT modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_SHT_W:
-        case HRM_SHT_OE:
+        // SHIFT modifiers - Hands Down Gold
         case HRM_SHT_N_HD:
         case HRM_SHT_E_HD:
-        case HRM_SHT_C_Q:
-        case HRM_SHT_COMM_Q:
-        // GUI modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_GUI_G:
-        case HRM_GUI_AE:
+        // GUI modifiers - Hands Down Gold
         case HRM_GUI_D_HD:
         case HRM_GUI_A_HD:
-        case HRM_GUI_V_Q:
-        case HRM_GUI_M_Q:
             return 50;  // 50ms window for thumb + homerow activation
 
         // HRM multi-modifier combos (3 keys)
@@ -930,34 +838,18 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case LEADER_COMBO:
 
         // HRM single modifier combos (thumb or homerow can come first)
-        // ALT modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_ALT_Z:
-        case HRM_ALT_K:
+        // ALT modifiers - Hands Down Gold
         case HRM_ALT_R_HD:
         case HRM_ALT_H_HD:
-        case HRM_ALT_Z_Q:
-        case HRM_ALT_SLSH_Q:
-        // CTRL modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_CTL_V:
-        case HRM_CTL_Y:
+        // CTRL modifiers - Hands Down Gold
         case HRM_CTL_S_HD:
         case HRM_CTL_I_HD:
-        case HRM_CTL_X_Q:
-        case HRM_CTL_DOT_Q:
-        // SHIFT modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_SHT_W:
-        case HRM_SHT_OE:
+        // SHIFT modifiers - Hands Down Gold
         case HRM_SHT_N_HD:
         case HRM_SHT_E_HD:
-        case HRM_SHT_C_Q:
-        case HRM_SHT_COMM_Q:
-        // GUI modifiers - BUTECK, Hands Down Gold, QWERTY
-        case HRM_GUI_G:
-        case HRM_GUI_AE:
+        // GUI modifiers - Hands Down Gold
         case HRM_GUI_D_HD:
         case HRM_GUI_A_HD:
-        case HRM_GUI_V_Q:
-        case HRM_GUI_M_Q:
 
         // HRM multi-modifier combos
         case HRM_GUI_SHT:
