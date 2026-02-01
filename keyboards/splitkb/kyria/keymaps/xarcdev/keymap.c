@@ -13,6 +13,22 @@
     static bool last_key_buffered = false;
 #endif
 
+// State tracking for NAVR combo layer activation
+// UC_TL3 matrix position on Kyria rev2: row 3, column 1 (left side)
+#define UC_TL3_ROW 3
+#define UC_TL3_COL 1
+
+// Homerow modifier key matrix positions (left side, row 1)
+// R=col 6, S=col 5, N=col 4, D=col 3
+#define HRM_ROW 1
+#define HRM_R_COL 6  // ALT
+#define HRM_S_COL 5  // CTL
+#define HRM_N_COL 4  // SHT
+#define HRM_D_COL 3  // GUI
+
+bool navr_combo_active = false;
+uint8_t navr_combo_mods = 0;  // Track which mods are registered via NAVR combo
+
 void keyboard_pre_init_user(void) {
     gpio_set_pin_output(24);
     gpio_write_pin_high(24);
@@ -682,6 +698,44 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
 
     return true;
+}
+
+// Housekeeping task to manage NAVR combo layer and modifiers
+void housekeeping_task_user(void) {
+    if (navr_combo_active) {
+        // Check if UC_TL3 is still physically pressed
+        if (!matrix_is_on(UC_TL3_ROW, UC_TL3_COL)) {
+            // UC_TL3 released, deactivate NAVR layer and clear all combo mods
+            unregister_mods(navr_combo_mods);
+            navr_combo_mods = 0;
+            layer_off(NAVR);
+            navr_combo_active = false;
+        } else {
+            // UC_TL3 still held - check each modifier key individually
+            // Unregister mods whose keys are no longer held
+
+            // Check ALT (R key)
+            if ((navr_combo_mods & MOD_BIT(KC_LALT)) && !matrix_is_on(HRM_ROW, HRM_R_COL)) {
+                unregister_mods(MOD_BIT(KC_LALT));
+                navr_combo_mods &= ~MOD_BIT(KC_LALT);
+            }
+            // Check CTL (S key)
+            if ((navr_combo_mods & MOD_BIT(KC_LCTL)) && !matrix_is_on(HRM_ROW, HRM_S_COL)) {
+                unregister_mods(MOD_BIT(KC_LCTL));
+                navr_combo_mods &= ~MOD_BIT(KC_LCTL);
+            }
+            // Check SHT (N key)
+            if ((navr_combo_mods & MOD_BIT(KC_LSFT)) && !matrix_is_on(HRM_ROW, HRM_N_COL)) {
+                unregister_mods(MOD_BIT(KC_LSFT));
+                navr_combo_mods &= ~MOD_BIT(KC_LSFT);
+            }
+            // Check GUI (D key)
+            if ((navr_combo_mods & MOD_BIT(KC_LGUI)) && !matrix_is_on(HRM_ROW, HRM_D_COL)) {
+                unregister_mods(MOD_BIT(KC_LGUI));
+                navr_combo_mods &= ~MOD_BIT(KC_LGUI);
+            }
+        }
+    }
 }
 
 void leader_end_user(void) {

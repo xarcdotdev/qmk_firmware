@@ -4,6 +4,10 @@
 #include "keycodes.h"
 #include "quantum.h"
 
+// State tracking for NAVR combo layer (defined in keymap.c)
+extern bool navr_combo_active;
+extern uint8_t navr_combo_mods;
+
 /************************
 * COMBOS
 ***********************/
@@ -109,6 +113,21 @@ enum combo_events  {
     COMBO_COPY_SHT,    // F + C + L = Shift+Copy
     COMBO_PASTE,       // L + C = Paste
     COMBO_PASTE_SHT,   // L + C + W = Shift+Paste
+
+    // NAVR layer + held modifier combos (UC_TL3 + left homerow)
+    // These activate NAVR layer and register modifier while held
+    NAV_ALT_L,         // UC_TL3 + R = NAVR + Alt (held)
+    NAV_CTL_L,         // UC_TL3 + S = NAVR + Ctrl (held)
+    NAV_SHT_L,         // UC_TL3 + N = NAVR + Shift (held)
+    NAV_GUI_L,         // UC_TL3 + D = NAVR + GUI (held)
+
+    // NAVR layer + two-modifier combos
+    NAV_CTL_SHT,       // UC_TL3 + S + N = NAVR + Ctrl+Shift (held)
+    NAV_CTL_ALT,       // UC_TL3 + S + R = NAVR + Ctrl+Alt (held)
+    NAV_CTL_GUI,       // UC_TL3 + S + D = NAVR + Ctrl+GUI (held)
+    NAV_SHT_ALT,       // UC_TL3 + N + R = NAVR + Shift+Alt (held)
+    NAV_SHT_GUI,       // UC_TL3 + N + D = NAVR + Shift+GUI (held)
+    NAV_ALT_GUI,       // UC_TL3 + R + D = NAVR + Alt+GUI (held)
 
     COMBO_LENGTH
 
@@ -221,6 +240,20 @@ const uint16_t PROGMEM copy_sht_fcl_combo[] = { DE_F, DE_C, DE_L, COMBO_END };
 const uint16_t PROGMEM paste_lc_combo[] = { DE_L, DE_C, COMBO_END };
 const uint16_t PROGMEM paste_sht_lcw_combo[] = { DE_L, DE_C, DE_W, COMBO_END };
 
+// NAVR layer + held modifier combos (UC_TL3 + left homerow keys)
+const uint16_t PROGMEM nav_alt_l_combo[] = { UC_TL3, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_ctl_l_combo[] = { UC_TL3, CTL_S_HD, COMBO_END };
+const uint16_t PROGMEM nav_sht_l_combo[] = { UC_TL3, SHT_N_HD, COMBO_END };
+const uint16_t PROGMEM nav_gui_l_combo[] = { UC_TL3, GUI_D_HD, COMBO_END };
+
+// NAVR layer + two-modifier combos
+const uint16_t PROGMEM nav_ctl_sht_combo[] = { UC_TL3, CTL_S_HD, SHT_N_HD, COMBO_END };
+const uint16_t PROGMEM nav_ctl_alt_combo[] = { UC_TL3, CTL_S_HD, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_ctl_gui_combo[] = { UC_TL3, CTL_S_HD, GUI_D_HD, COMBO_END };
+const uint16_t PROGMEM nav_sht_alt_combo[] = { UC_TL3, SHT_N_HD, ALT_R_HD, COMBO_END };
+const uint16_t PROGMEM nav_sht_gui_combo[] = { UC_TL3, SHT_N_HD, GUI_D_HD, COMBO_END };
+const uint16_t PROGMEM nav_alt_gui_combo[] = { UC_TL3, ALT_R_HD, GUI_D_HD, COMBO_END };
+
 
 //Combo Action
 combo_t key_combos[COMBO_LENGTH] = {
@@ -318,6 +351,20 @@ combo_t key_combos[COMBO_LENGTH] = {
     [COMBO_COPY_SHT] = COMBO(copy_sht_fcl_combo, LSFT(LCTL(DE_C))),
     [COMBO_PASTE] = COMBO(paste_lc_combo, LCTL(DE_V)),
     [COMBO_PASTE_SHT] = COMBO(paste_sht_lcw_combo, LSFT(LCTL(DE_V))),
+
+    // NAVR layer + held modifier combos
+    [NAV_ALT_L] = COMBO_ACTION(nav_alt_l_combo),
+    [NAV_CTL_L] = COMBO_ACTION(nav_ctl_l_combo),
+    [NAV_SHT_L] = COMBO_ACTION(nav_sht_l_combo),
+    [NAV_GUI_L] = COMBO_ACTION(nav_gui_l_combo),
+
+    // NAVR layer + two-modifier combos
+    [NAV_CTL_SHT] = COMBO_ACTION(nav_ctl_sht_combo),
+    [NAV_CTL_ALT] = COMBO_ACTION(nav_ctl_alt_combo),
+    [NAV_CTL_GUI] = COMBO_ACTION(nav_ctl_gui_combo),
+    [NAV_SHT_ALT] = COMBO_ACTION(nav_sht_alt_combo),
+    [NAV_SHT_GUI] = COMBO_ACTION(nav_sht_gui_combo),
+    [NAV_ALT_GUI] = COMBO_ACTION(nav_alt_gui_combo),
 };
 
 
@@ -517,6 +564,92 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             }
             break;
 
+        // NAVR layer + held modifier combos
+        // These activate NAVR and set mod flags on press
+        // Actual mod register/unregister handled in housekeeping_task_user
+        case NAV_ALT_L:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LALT);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LALT));
+            }
+            break;
+        case NAV_CTL_L:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LCTL);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LCTL));
+            }
+            break;
+        case NAV_SHT_L:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LSFT);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LSFT));
+            }
+            break;
+        case NAV_GUI_L:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LGUI);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LGUI));
+            }
+            break;
+
+        // NAVR + two-modifier combos
+        case NAV_CTL_SHT:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LCTL) | MOD_BIT(KC_LSFT);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LSFT));
+            }
+            break;
+        case NAV_CTL_ALT:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT));
+            }
+            break;
+        case NAV_CTL_GUI:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LCTL) | MOD_BIT(KC_LGUI));
+            }
+            break;
+        case NAV_SHT_ALT:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LSFT) | MOD_BIT(KC_LALT);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LALT));
+            }
+            break;
+        case NAV_SHT_GUI:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LSFT) | MOD_BIT(KC_LGUI);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LSFT) | MOD_BIT(KC_LGUI));
+            }
+            break;
+        case NAV_ALT_GUI:
+            if (pressed) {
+                navr_combo_active = true;
+                navr_combo_mods |= MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI);
+                layer_on(NAVR);
+                register_mods(MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI));
+            }
+            break;
+
         // Two-modifier combos - Right side
         case HRM_GUI_SHT_R:
             if (pressed) {
@@ -575,7 +708,22 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 
 bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
-    return true;
+    switch (combo_index) {
+        // NAVR + held modifier combos should trigger on press, not tap
+        case NAV_ALT_L:
+        case NAV_CTL_L:
+        case NAV_SHT_L:
+        case NAV_GUI_L:
+        case NAV_CTL_SHT:
+        case NAV_CTL_ALT:
+        case NAV_CTL_GUI:
+        case NAV_SHT_ALT:
+        case NAV_SHT_GUI:
+        case NAV_ALT_GUI:
+            return false;
+        default:
+            return true;
+    }
 }
 
 uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
@@ -689,6 +837,22 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         case COMBO_COPY_SHT:
         case COMBO_PASTE_SHT:
             return 50;  // 3 keys
+
+        // NAVR + held modifier combos (thumb + homerow)
+        case NAV_ALT_L:
+        case NAV_CTL_L:
+        case NAV_SHT_L:
+        case NAV_GUI_L:
+            return 50;  // Same timing as UC_TL2 HRM combos
+
+        // NAVR + two-modifier combos (3 keys)
+        case NAV_CTL_SHT:
+        case NAV_CTL_ALT:
+        case NAV_CTL_GUI:
+        case NAV_SHT_ALT:
+        case NAV_SHT_GUI:
+        case NAV_ALT_GUI:
+            return 60;  // 3 keys need slightly more time
     }
     return COMBO_TERM;  // Default 40ms from config.h
 }
@@ -790,6 +954,18 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case COMBO_COPY_SHT:
         case COMBO_PASTE:
         case COMBO_PASTE_SHT:
+
+        // NAVR + held modifier combos (thumb or homerow can come first)
+        case NAV_ALT_L:
+        case NAV_CTL_L:
+        case NAV_SHT_L:
+        case NAV_GUI_L:
+        case NAV_CTL_SHT:
+        case NAV_CTL_ALT:
+        case NAV_CTL_GUI:
+        case NAV_SHT_ALT:
+        case NAV_SHT_GUI:
+        case NAV_ALT_GUI:
             return false;
     }
     return true;
