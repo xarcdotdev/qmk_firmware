@@ -145,10 +145,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [INVRT] = LAYOUT(
   DE_SS,   DE_B, DE_U,   DE_DOT, DE_COMM, DE_UE,                                    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   DE_X,    DE_H, DE_I,   DE_E,   DE_A,    DE_O,                                     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-  KC_BSPC, ALT_K, CTL_Y, SHT_OE, GUI_AE,  DE_Q,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  KC_BSPC, DE_K, DE_Y,   DE_O,   DE_U,    DE_Q,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
-
 
 /*
  * MouseControl Layer: MOUR
