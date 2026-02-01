@@ -16,23 +16,11 @@ enum combo_events  {
     // COMBO_CTL_Z,
     // COMBO_SHT_CTL_Z,
 
-    WIN_CTL_LEFT,
-    WIN_CTL_RIGHT,
-
     ALT_UP,
     ALT_LEFT,
     ALT_RIGHT,
     ALT_DOWN,
     ALT_F4_COMBO,
-    RWIN_SHT_S,
-
-    QUICK_TERMINAL,
-
-    BSPC_LSFT_CLEAR,
-    QUICK_WINDOWS,
-    QUICK_VBOX,
-
-    COMBO_CTL_A,
 
     // Hands Down Gold combos
     SEMICOLON_COMBO,
@@ -134,26 +122,6 @@ enum combo_events  {
 int COMBO_LEN = COMBO_LENGTH;
 
 //Combo Activation
-// const uint16_t PROGMEM copy_combo[]  = { GUI_G, DE_C, COMBO_END };
-// const uint16_t PROGMEM paste_combo[] = { GUI_G, DE_V, COMBO_END };
-// const uint16_t PROGMEM cut_combo[] = { GUI_G, DE_X, COMBO_END };
-// const uint16_t PROGMEM save_combo[]  = { GUI_G, DE_S, COMBO_END };
-// const uint16_t PROGMEM undo_combo[]  = { GUI_G, DE_Z, COMBO_END };
-// const uint16_t PROGMEM redo_combo[]  = { GUI_G, SHT_W, DE_Z, COMBO_END };
-
-const uint16_t PROGMEM win_ctrl_left_combo[] = { ALT_Z, GUI_G, KC_LEFT, COMBO_END };
-const uint16_t PROGMEM win_ctrl_right_combo[] = { ALT_Z, GUI_G, KC_RGHT, COMBO_END };
-
-const uint16_t PROGMEM rwin_shift_s_combo[] = { ALT_K, SHT_OE, DE_S, COMBO_END };
-const uint16_t PROGMEM quick_terminal_combo[] = { ALT_Z, UC_TR1, COMBO_END };
-
-// const uint16_t PROGMEM close_combo[]  = { CTL_G, DE_W, COMBO_END };
-// const uint16_t PROGMEM close_combo_b[]  = { DE_R, DE_W, COMBO_END };
-
-const uint16_t PROGMEM clear_line_combo[] = {KC_BSPC, KC_LSFT, COMBO_END};
-const uint16_t PROGMEM quick_win_combo[]  = {UC_TL4, UC_TR1, COMBO_END };
-const uint16_t PROGMEM quick_vbox_combo[]  = {ALT_Z, GUI_G, COMBO_END };
-const uint16_t PROGMEM select_all_combo[] = { GUI_G, DE_A, COMBO_END };
 
 // Hands Down Gold combos
 const uint16_t PROGMEM semicolon_combo[] = { DE_COMM, DE_DOT, COMBO_END };  // , + . = ;
@@ -192,7 +160,6 @@ const uint16_t PROGMEM alt_f4_combo[] = { ALT_H_HD, UC_TR3, KC_F4, COMBO_END };
 // Two-modifier + key combos
 const uint16_t PROGMEM sht_ctl_tab_combo[] = { CTL_S_HD, SHT_N_HD, UC_TL4, COMBO_END };
 
-
 // Two-modifier + Space combos
 const uint16_t PROGMEM gui_sht_space_combo[] = { GUI_D_HD, SHT_N_HD, UC_TL3, COMBO_END };
 const uint16_t PROGMEM gui_ctl_space_combo[] = { GUI_D_HD, CTL_S_HD, UC_TL3, COMBO_END };
@@ -201,7 +168,7 @@ const uint16_t PROGMEM ctl_sht_space_combo[] = { CTL_S_HD, SHT_N_HD, UC_TL3, COM
 const uint16_t PROGMEM ctl_alt_space_combo[] = { CTL_S_HD, ALT_R_HD, UC_TL3, COMBO_END };
 const uint16_t PROGMEM sht_alt_space_combo[] = { SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
 
-// Three-modifier + Space combos
+// Three-modifier + Space combos 
 const uint16_t PROGMEM gui_sht_ctl_space_combo[] = { GUI_D_HD, SHT_N_HD, CTL_S_HD, UC_TL3, COMBO_END };
 const uint16_t PROGMEM gui_sht_alt_space_combo[] = { GUI_D_HD, SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
 const uint16_t PROGMEM gui_ctl_alt_space_combo[] = { GUI_D_HD, CTL_S_HD, ALT_R_HD, UC_TL3, COMBO_END };
@@ -269,23 +236,11 @@ combo_t key_combos[COMBO_LENGTH] = {
     // [COMBO_CTL_S]  = COMBO(save_combo, LCTL(DE_S)),
     // [COMBO_CTL_Z] = COMBO(undo_combo, LCTL(DE_Z)),
     // [COMBO_SHT_CTL_Z] = COMBO(redo_combo, LCTL(LSFT(DE_Z))),
-    [WIN_CTL_LEFT] = COMBO(win_ctrl_left_combo, LGUI(LCTL(KC_LEFT))),
-    [WIN_CTL_RIGHT] = COMBO(win_ctrl_right_combo, LGUI(LCTL(KC_RGHT))),
     [ALT_UP] = COMBO(alt_up_combo, LALT(KC_UP)),
     [ALT_DOWN] = COMBO(alt_down_combo, LALT(KC_DOWN)),
     [ALT_LEFT] = COMBO(alt_left_combo, LALT(KC_LEFT)),
     [ALT_RIGHT] = COMBO(alt_right_combo, LALT(KC_RGHT)),
     [ALT_F4_COMBO] = COMBO(alt_f4_combo, LALT(KC_F4)),
-    [RWIN_SHT_S] = COMBO(rwin_shift_s_combo, LGUI(LSFT(DE_S))),
-
-    [QUICK_TERMINAL] = COMBO_ACTION(quick_terminal_combo),
-
-    // [CTL_W] = COMBO(close_combo, LCTL(DE_W)),
-    // [CTL_W_B] = COMBO(close_combo_b, LCTL(DE_W)),
-    [BSPC_LSFT_CLEAR] = COMBO_ACTION(clear_line_combo),
-    [QUICK_WINDOWS] = COMBO_ACTION(quick_win_combo),
-    [QUICK_VBOX] = COMBO_ACTION(quick_vbox_combo),
-    [COMBO_CTL_A] = COMBO_ACTION(select_all_combo),
 
     // Hands Down Gold combos
     [SEMICOLON_COMBO] = COMBO(semicolon_combo, DE_SCLN),
@@ -422,38 +377,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             } else {
                 unregister_code(KC_LSFT); // Release Shift
                 unregister_code(KC_LCTL); // Release Ctrl
-            }
-            break;
-        case BSPC_LSFT_CLEAR:
-            if (pressed) {
-                tap_code16(KC_END);
-                tap_code16(S(KC_HOME));
-                tap_code16(KC_BSPC);
-            }
-            break;
-        case QUICK_WINDOWS:
-            if (pressed) {
-                tap_code16(KC_LGUI);
-            }
-            break;
-        case QUICK_VBOX:
-            if (pressed) {
-                register_code16(KC_LGUI);
-                tap_code16(KC_LCTL);
-            }
-            break;
-        case QUICK_TERMINAL:
-            if (pressed) {
-                register_code16(KC_LGUI);
-                tap_code16(KC_ENT);
-            } else {
-                unregister_code(KC_LGUI); // Release CTRL
-            }
-            break;
-
-        case COMBO_CTL_A:
-            if (pressed) {
-                tap_code16(LCTL(DE_A));
             }
             break;
 
@@ -664,12 +587,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 
 bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
-    switch (combo_index) {
-        // Standard combos
-        case COMBO_CTL_A:
-        case QUICK_TERMINAL:
-            return false;
-    }
     return true;
 }
 
@@ -790,14 +707,6 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
 
 bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
     switch (combo_index) {
-        // Standard combos
-        case RWIN_SHT_S:
-        case WIN_CTL_LEFT:
-        case WIN_CTL_RIGHT:
-        case BSPC_LSFT_CLEAR:
-        case QUICK_WINDOWS:
-        case QUICK_TERMINAL:
-
         // Hands Down Gold combos
         case QU_COMBO:
         case SEMICOLON_COMBO:
