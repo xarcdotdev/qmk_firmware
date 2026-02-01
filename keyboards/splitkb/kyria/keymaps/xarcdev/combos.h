@@ -9,12 +9,6 @@
 ***********************/
 //Name of combos
 enum combo_events  {
-    // COMBO_CTL_C,
-    // COMBO_CTL_V,
-    // COMBO_CTL_X,
-    // COMBO_CTL_S,
-    // COMBO_CTL_Z,
-    // COMBO_SHT_CTL_Z,
 
     ALT_UP,
     ALT_LEFT,
@@ -49,19 +43,19 @@ enum combo_events  {
     ALT_SPACE,           // R + Space = Alt+Space
     SHT_CTL_TAB,         // S + N + Tab = Shift+Ctrl+Tab
 
-    // Two-modifier + Space combos
-    GUI_SHT_SPACE,          // D + N + Space = GUI+Shift+Space
-    GUI_CTL_SPACE,          // D + S + Space = GUI+Ctrl+Space
-    GUI_ALT_SPACE,          // D + R + Space = GUI+Alt+Space
-    CTL_SHT_SPACE,          // S + N + Space = Ctrl+Shift+Space
-    CTL_ALT_SPACE,          // S + R + Space = Ctrl+Alt+Space
-    SHT_ALT_SPACE,          // N + R + Space = Shift+Alt+Space
+    // // Two-modifier + Space combos
+    // GUI_SHT_SPACE,          // D + N + Space = GUI+Shift+Space
+    // GUI_CTL_SPACE,          // D + S + Space = GUI+Ctrl+Space
+    // GUI_ALT_SPACE,          // D + R + Space = GUI+Alt+Space
+    // CTL_SHT_SPACE,          // S + N + Space = Ctrl+Shift+Space
+    // CTL_ALT_SPACE,          // S + R + Space = Ctrl+Alt+Space
+    // SHT_ALT_SPACE,          // N + R + Space = Shift+Alt+Space
 
-    // Three-modifier + Space combos
-    GUI_SHT_CTL_SPACE,      // D + N + S + Space = GUI+Shift+Ctrl+Space
-    GUI_SHT_ALT_SPACE,      // D + N + R + Space = GUI+Shift+Alt+Space
-    GUI_CTL_ALT_SPACE,      // D + S + R + Space = GUI+Ctrl+Alt+Space
-    CTL_SHT_ALT_SPACE,      // S + N + R + Space = Ctrl+Shift+Alt+Space
+    // // Three-modifier + Space combos
+    // GUI_SHT_CTL_SPACE,      // D + N + S + Space = GUI+Shift+Ctrl+Space
+    // GUI_SHT_ALT_SPACE,      // D + N + R + Space = GUI+Shift+Alt+Space
+    // GUI_CTL_ALT_SPACE,      // D + S + R + Space = GUI+Ctrl+Alt+Space
+    // CTL_SHT_ALT_SPACE,      // S + N + R + Space = Ctrl+Shift+Alt+Space
 
     // Thumb-gated HRM combos - Single modifiers
     // Hands Down Gold layout (middle row: R S N D | A E I H)
@@ -160,19 +154,19 @@ const uint16_t PROGMEM alt_f4_combo[] = { ALT_H_HD, UC_TR3, KC_F4, COMBO_END };
 // Two-modifier + key combos
 const uint16_t PROGMEM sht_ctl_tab_combo[] = { CTL_S_HD, SHT_N_HD, UC_TL4, COMBO_END };
 
-// Two-modifier + Space combos
-const uint16_t PROGMEM gui_sht_space_combo[] = { GUI_D_HD, SHT_N_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM gui_ctl_space_combo[] = { GUI_D_HD, CTL_S_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM gui_alt_space_combo[] = { GUI_D_HD, ALT_R_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM ctl_sht_space_combo[] = { CTL_S_HD, SHT_N_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM ctl_alt_space_combo[] = { CTL_S_HD, ALT_R_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM sht_alt_space_combo[] = { SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
+// // Two-modifier + Space combos
+// const uint16_t PROGMEM gui_sht_space_combo[] = { GUI_D_HD, SHT_N_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM gui_ctl_space_combo[] = { GUI_D_HD, CTL_S_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM gui_alt_space_combo[] = { GUI_D_HD, ALT_R_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM ctl_sht_space_combo[] = { CTL_S_HD, SHT_N_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM ctl_alt_space_combo[] = { CTL_S_HD, ALT_R_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM sht_alt_space_combo[] = { SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
 
-// Three-modifier + Space combos 
-const uint16_t PROGMEM gui_sht_ctl_space_combo[] = { GUI_D_HD, SHT_N_HD, CTL_S_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM gui_sht_alt_space_combo[] = { GUI_D_HD, SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM gui_ctl_alt_space_combo[] = { GUI_D_HD, CTL_S_HD, ALT_R_HD, UC_TL3, COMBO_END };
-const uint16_t PROGMEM ctl_sht_alt_space_combo[] = { CTL_S_HD, SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
+// // Three-modifier + Space combos 
+// const uint16_t PROGMEM gui_sht_ctl_space_combo[] = { GUI_D_HD, SHT_N_HD, CTL_S_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM gui_sht_alt_space_combo[] = { GUI_D_HD, SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM gui_ctl_alt_space_combo[] = { GUI_D_HD, CTL_S_HD, ALT_R_HD, UC_TL3, COMBO_END };
+// const uint16_t PROGMEM ctl_sht_alt_space_combo[] = { CTL_S_HD, SHT_N_HD, ALT_R_HD, UC_TL3, COMBO_END };
 
 // Thumb-gated HRM combos - Single modifiers
 // Hands Down Gold layout
@@ -272,20 +266,20 @@ combo_t key_combos[COMBO_LENGTH] = {
 
     // Two-modifier + key combos
     [SHT_CTL_TAB] = COMBO_ACTION(sht_ctl_tab_combo),
- 
-    // Two-modifier + Space combos
-    [GUI_SHT_SPACE] = COMBO(gui_sht_space_combo, LGUI(LSFT(KC_SPC))),
-    [GUI_CTL_SPACE] = COMBO(gui_ctl_space_combo, LGUI(LCTL(KC_SPC))),
-    [GUI_ALT_SPACE] = COMBO(gui_alt_space_combo, LGUI(LALT(KC_SPC))),
-    [CTL_SHT_SPACE] = COMBO(ctl_sht_space_combo, LCTL(LSFT(KC_SPC))),
-    [CTL_ALT_SPACE] = COMBO(ctl_alt_space_combo, LCTL(LALT(KC_SPC))),
-    [SHT_ALT_SPACE] = COMBO(sht_alt_space_combo, LSFT(LALT(KC_SPC))),
+    
+    // // Two-modifier + Space combos
+    // [GUI_SHT_SPACE] = COMBO(gui_sht_space_combo, LGUI(LSFT(KC_SPC))),
+    // [GUI_CTL_SPACE] = COMBO(gui_ctl_space_combo, LGUI(LCTL(KC_SPC))),
+    // [GUI_ALT_SPACE] = COMBO(gui_alt_space_combo, LGUI(LALT(KC_SPC))),
+    // [CTL_SHT_SPACE] = COMBO(ctl_sht_space_combo, LCTL(LSFT(KC_SPC))),
+    // [CTL_ALT_SPACE] = COMBO(ctl_alt_space_combo, LCTL(LALT(KC_SPC))),
+    // [SHT_ALT_SPACE] = COMBO(sht_alt_space_combo, LSFT(LALT(KC_SPC))),
 
-    // Three-modifier + Space combos
-    [GUI_SHT_CTL_SPACE] = COMBO(gui_sht_ctl_space_combo, LGUI(LSFT(LCTL(KC_SPC)))),
-    [GUI_SHT_ALT_SPACE] = COMBO(gui_sht_alt_space_combo, LGUI(LSFT(LALT(KC_SPC)))),
-    [GUI_CTL_ALT_SPACE] = COMBO(gui_ctl_alt_space_combo, LGUI(LCTL(LALT(KC_SPC)))),
-    [CTL_SHT_ALT_SPACE] = COMBO(ctl_sht_alt_space_combo, LCTL(LSFT(LALT(KC_SPC)))),
+    // // Three-modifier + Space combos
+    // [GUI_SHT_CTL_SPACE] = COMBO(gui_sht_ctl_space_combo, LGUI(LSFT(LCTL(KC_SPC)))),
+    // [GUI_SHT_ALT_SPACE] = COMBO(gui_sht_alt_space_combo, LGUI(LSFT(LALT(KC_SPC)))),
+    // [GUI_CTL_ALT_SPACE] = COMBO(gui_ctl_alt_space_combo, LGUI(LCTL(LALT(KC_SPC)))),
+    // [CTL_SHT_ALT_SPACE] = COMBO(ctl_sht_alt_space_combo, LCTL(LSFT(LALT(KC_SPC)))),
 
     // Thumb-gated HRM combos - Hands Down Gold layout (One-Shot Modifiers)
     [HRM_ALT_R_HD] = COMBO_ACTION(hrm_alt_r_hd_combo),
@@ -620,21 +614,21 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
         case ALT_SPACE:
             return 40;
 
-        // Two-modifier + Space combos
-        case GUI_SHT_SPACE:
-        case GUI_CTL_SPACE:
-        case GUI_ALT_SPACE:
-        case CTL_SHT_SPACE:
-        case CTL_ALT_SPACE:
-        case SHT_ALT_SPACE:
-            return 60;  // 3 keys
+        // // Two-modifier + Space combos
+        // case GUI_SHT_SPACE:
+        // case GUI_CTL_SPACE:
+        // case GUI_ALT_SPACE:
+        // case CTL_SHT_SPACE:
+        // case CTL_ALT_SPACE:
+        // case SHT_ALT_SPACE:
+        //     return 60;  // 3 keys
 
-        // Three-modifier + Space combos
-        case GUI_SHT_CTL_SPACE:
-        case GUI_SHT_ALT_SPACE:
-        case GUI_CTL_ALT_SPACE:
-        case CTL_SHT_ALT_SPACE:
-            return 80;  // 4 keys
+        // // Three-modifier + Space combos
+        // case GUI_SHT_CTL_SPACE:
+        // case GUI_SHT_ALT_SPACE:
+        // case GUI_CTL_ALT_SPACE:
+        // case CTL_SHT_ALT_SPACE:
+        //     return 80;  // 4 keys
 
         // HRM single modifier combos (thumb + homerow)
         // ALT modifiers - Hands Down Gold
@@ -729,19 +723,19 @@ bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
         case ALT_F4_COMBO:
         case SHT_CTL_TAB:
 
-        // Two-modifier + Space combos
-        case GUI_SHT_SPACE:
-        case GUI_CTL_SPACE:
-        case GUI_ALT_SPACE:
-        case CTL_SHT_SPACE:
-        case CTL_ALT_SPACE:
-        case SHT_ALT_SPACE:
+        // // Two-modifier + Space combos
+        // case GUI_SHT_SPACE:
+        // case GUI_CTL_SPACE:
+        // case GUI_ALT_SPACE:
+        // case CTL_SHT_SPACE:
+        // case CTL_ALT_SPACE:
+        // case SHT_ALT_SPACE:
 
-        // Three-modifier + Space combos
-        case GUI_SHT_CTL_SPACE:
-        case GUI_SHT_ALT_SPACE:
-        case GUI_CTL_ALT_SPACE:
-        case CTL_SHT_ALT_SPACE:
+        // // Three-modifier + Space combos
+        // case GUI_SHT_CTL_SPACE:
+        // case GUI_SHT_ALT_SPACE:
+        // case GUI_CTL_ALT_SPACE:
+        // case CTL_SHT_ALT_SPACE:
 
         // Leader key combo
         case LEADER_COMBO:
