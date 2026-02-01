@@ -667,6 +667,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void leader_end_user(void) {
+    // Vim commands
     if (leader_sequence_one_key(KC_Q)) {
         tap_code16(S(DE_DOT));  // :
         tap_code16(DE_Q);       // q
@@ -674,6 +675,26 @@ void leader_end_user(void) {
         tap_code16(S(DE_DOT));  // :
         tap_code16(DE_W);       // w
         tap_code16(DE_Q);       // q
+    }
+    // Workspace switching (GUI + 1-9) using home row keys
+    else if (leader_sequence_one_key(DE_F)) {
+        tap_code16(LGUI(DE_1));
+    } else if (leader_sequence_one_key(DE_L)) {
+        tap_code16(LGUI(DE_2));
+    } else if (leader_sequence_one_key(DE_C)) {
+        tap_code16(LGUI(DE_3));
+    } else if (leader_sequence_one_key(DE_S)) {
+        tap_code16(LGUI(DE_4));
+    } else if (leader_sequence_one_key(DE_N)) {
+        tap_code16(LGUI(DE_5));
+    } else if (leader_sequence_one_key(DE_D)) {
+        tap_code16(LGUI(DE_6));
+    } else if (leader_sequence_one_key(DE_G)) {
+        tap_code16(LGUI(DE_7));
+    } else if (leader_sequence_one_key(DE_M)) {
+        tap_code16(LGUI(DE_8));
+    } else if (leader_sequence_one_key(DE_P)) {
+        tap_code16(LGUI(DE_9));
     }
 }
 
