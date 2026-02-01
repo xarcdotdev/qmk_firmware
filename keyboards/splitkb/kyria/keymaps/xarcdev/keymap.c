@@ -142,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [WINM] = LAYOUT(
   TO(BASE),  HYPR(KC_LEFT), HYPR(KC_RGHT), LCG(KC_LEFT), LCG(KC_RIGHT), KC_TRNS,                                  HYPR(KC_LEFT),  LAG(KC_LEFT), LAG(KC_DOWN),  LAG(KC_UP),  LAG(KC_RGHT), HYPR(KC_RGHT),
   KC_TRNS,   KC_LALT,       KC_LCTL,       KC_LSFT,      KC_LGUI,       LCG(DE_U),                                KC_TRNS,       KC_LGUI,       KC_LSFT,       KC_LCTL,      KC_LALT,       KC_NU,
-  KC_TRNS,   KC_TRNS,       KC_TRNS,       KC_TRNS,      KC_TRNS,       KC_TRNS,  KC_NU,  KC_NU,  KC_NU,  KC_NU,  LCG(KC_LEFT), LGUI(KC_LEFT),  LGUI(KC_DOWN),  LGUI(KC_UP),   LGUI(KC_RGHT),  LCG(KC_RGHT),
+  KC_TRNS,   KC_TRNS,       KC_TRNS,       LSAG(KC_TAB), LAG(KC_TAB),  KC_TRNS,  KC_NU,  KC_NU,  KC_NU,  KC_NU,  LCG(KC_LEFT), LGUI(KC_LEFT),  LGUI(KC_DOWN),  LGUI(KC_UP),   LGUI(KC_RGHT),  LCG(KC_RGHT),
                             KC_TRNS,       KC_TRNS,      KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS
 ),
 
