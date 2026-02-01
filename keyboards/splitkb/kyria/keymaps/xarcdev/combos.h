@@ -224,12 +224,6 @@ const uint16_t PROGMEM paste_sht_lcw_combo[] = { DE_L, DE_C, DE_W, COMBO_END };
 
 //Combo Action
 combo_t key_combos[COMBO_LENGTH] = {
-    // [COMBO_CTL_C]  = COMBO(copy_combo, LCTL(DE_C)),
-    // [COMBO_CTL_V] = COMBO(paste_combo, LCTL(DE_V)),
-    // [COMBO_CTL_X] = COMBO(cut_combo, LCTL(DE_X)),
-    // [COMBO_CTL_S]  = COMBO(save_combo, LCTL(DE_S)),
-    // [COMBO_CTL_Z] = COMBO(undo_combo, LCTL(DE_Z)),
-    // [COMBO_SHT_CTL_Z] = COMBO(redo_combo, LCTL(LSFT(DE_Z))),
     [ALT_UP] = COMBO(alt_up_combo, LALT(KC_UP)),
     [ALT_DOWN] = COMBO(alt_down_combo, LALT(KC_DOWN)),
     [ALT_LEFT] = COMBO(alt_left_combo, LALT(KC_LEFT)),
