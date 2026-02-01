@@ -110,22 +110,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * Window Navigation Layer: WINM
  *
- * ,-----------------------------------------------------.                          ,-------------------------------------------------------.
- * | RESET LYR  | _____ | _____ | ______ | _____ | _____ |                          | G+S+C+A+← | G+A+← | G+A+↓ | G+A+↑ | G+A+→ | G+S+C+A+→ |
- * |------------+-------+-------+--------+-------+-------|                          |-----------+-------+-------+-------+-------+-----------|
- * | ____       |  ALT  |  CTRL |  SHIFT  | GUI | Layout|                           | _________ |  GUI  | SHIFT |  CTRL |  ALT  | _________ |
- * |------------+-------+-------+---------+-----+-------+---------.   ,-------------+-----------+-------+-------+-------+-------+-----------|
- * | ____       | ____  |  ____ | _______ | ___ | _____ | _______ |  | ____ | ____ |    G+C+←   | GUI+← | GUI+↓ | GUI+↑ | GUI+→ |   G+C+→   |
- * `-----------------------+-------+-------+-------+-------+------|  |------+------+------------+---------+------+------+-------+-----------'
- *                         | _____ | _____ | _____ | _____ | ____ |  | ____ | ____ | ____ | ____ | ____ |
- *                         |       |       |       |       |      |  |      |      |Delete|      |      |
- *                         `--------------------------------------'  `----------------------------------'
+ * ,-------------------------------------------------------------.                          ,-------------------------------------------------------.
+ * | RESET LYR  | G+S+C+A+← | G+S+C+A+→ | G+C+← | G+C+→ | ______ |                          |    G+C+←   | GUI+← | GUI+↓ | GUI+↑ | GUI+→ |   G+C+→   |
+ * |------------+---------+----------+-----------+-------+-------|                          |-----------+-------+-------+-------+-------+-----------|
+ * | ____       |   ALT   |   CTRL  |   SHIFT   |  GUI  | Layout |                           | _________ |  GUI  | SHIFT |  CTRL |  ALT  | _________ |
+ * |------------+---------+---------+-----------+-------+---------+---------.   ,-------------+-----------+-------+-------+-------+-------+-----------|
+ * | ____       | ______  |  ______ | _________ | _____ | _______ | _______ |  | ____ | ____ | G+S+C+A+← | G+A+← | G+A+↓ | G+A+↑ | G+A+→ | G+S+C+A+→ |
+ * `------------+---------+---------+-----------+-------+---------+---------|  |------+------+------------+---------+------+------+-------+-----------'
+ *                                   | _____ | _____ | _____ | _____ | ____ |  | ____ | ____ | ____ | ____ | ____ |
+ *                                   |       |       |       |       |      |  |      |      |Delete|      |      |
+ *                                   `--------------------------------------'  `----------------------------------'
 */
 [WINM] = LAYOUT(
-  TO(BASE),  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                  HYPR(KC_LEFT), LAG(KC_LEFT),  LAG(KC_DOWN),  LAG(KC_UP),    LAG(KC_RGHT),  HYPR(KC_RGHT),
-  KC_TRNS,   KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, LCG(DE_U),                                KC_TRNS,       KC_LGUI,       KC_LSFT,       KC_LCTL,       KC_LALT,       KC_NU,
-  KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_NU,  KC_NU,  KC_NU,  KC_NU,  LCG(KC_LEFT),  LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP),   LGUI(KC_RGHT), LCG(KC_RGHT),
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS
+  TO(BASE),  HYPR(KC_LEFT), HYPR(KC_RGHT), LCG(KC_LEFT), LCG(KC_RIGHT), KC_TRNS,                                  LCG(KC_LEFT),  LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP),  LGUI(KC_RGHT), LCG(KC_RGHT),
+  KC_TRNS,   KC_LALT,       KC_LCTL,       KC_LSFT,      KC_LGUI,       LCG(DE_U),                                KC_TRNS,       KC_LGUI,       KC_LSFT,       KC_LCTL,      KC_LALT,       KC_NU,
+  KC_TRNS,   KC_TRNS,       KC_TRNS,       KC_TRNS,      KC_TRNS,       KC_TRNS,  KC_NU,  KC_NU,  KC_NU,  KC_NU,  HYPR(KC_LEFT), LAG(KC_LEFT),  LAG(KC_DOWN),  LAG(KC_UP),   LAG(KC_RGHT),  HYPR(KC_RGHT),
+                            KC_TRNS,       KC_TRNS,      KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS
 ),
 
 /*
