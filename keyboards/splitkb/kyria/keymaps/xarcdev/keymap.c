@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 *                         Leader Key: Space + Backspace combo
 */
 [BASE] = LAYOUT(
-  TO(BUTCK), DE_J,  DE_G,  DE_M,  DE_P,  DE_V,                                    DE_UE, DE_COMM,  DE_DOT, DE_DQUO, DE_QUOT, DE_SS,
+  TO(QWERTY), DE_J,  DE_G,  DE_M,  DE_P,  DE_V,                                    DE_UE, DE_COMM,  DE_DOT, DE_DQUO, DE_QUOT, DE_SS,
   KC_ESC,   DE_R,  DE_S,  DE_N,  DE_D,  DE_B,                                    DE_OE, DE_A,    DE_E,    DE_I,    DE_H,    DE_X,
   TO(BASE), DE_Z,  DE_F,  DE_L,  DE_C,  DE_W,  KC_NU, KC_NU,   KC_NU,  KC_NU,    DE_Q, DE_U,   DE_O,   DE_Y,   DE_K,   DE_MINS,
                        KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
@@ -219,7 +219,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * Symbol Layer: SYMBOL
   *
   * ,-------------------------------------------.                              ,-------------------------------------------.
-  * |        |  !   |  ?   |  [   |  ]   |  ^   |                              |   °  |      |  &   |  %   |  |   |   §    |
+  * |        |  !   |  ?   |  [   |  ]   |  ^   |                              |   °  |   _  |  &   |  %   |  |   |   §    |
   * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
   * |        |  \   |  /   |  (   |  )   |  @   |                              |   `  |  {   |  }   |  +   |  =   |   ²    |
   * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
@@ -230,33 +230,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   *                        `----------------------------------'  `----------------------------------'
   */
 [SYMBOL] = LAYOUT(
-TO(BASE), DE_EXLM, DE_QUES,   DE_LBRC, DE_RBRC, DE_CIRC,                                     DE_DEG, KC_TRNS, DE_AMPR,DE_PERC,DE_PIPE,DE_SECT,
+TO(BASE), DE_EXLM, DE_QUES,   DE_LBRC, DE_RBRC, DE_CIRC,                                     DE_DEG, DE_UNDS, DE_AMPR,DE_PERC,DE_PIPE,DE_SECT,
 TO(SYMBOL), DE_BSLS, DE_SLSH,  DE_LPRN, DE_RPRN, DE_AT,                                      DE_GRV, DE_LCBR, DE_RCBR, DE_PLUS, DE_EQL, DE_SUP2,
 TO(BASE), DE_HASH, TD(TD_CURNCY), DE_LABK, DE_RABK, DE_ASTR, KC_NU, KC_NU,  KC_NU,   KC_NU, DE_TILD, BACKTICK,  TRIPLE_BACKTICK, DE_DQUO,  DE_QUOT, DE_SUP3,
                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 ),
 
-/*
-* Base Layer: BUTECK-XCV
-*
-* ,-----------------------------------------------.                              ,------------------------------------------.
-* | RESET LYR  |   F  |   M  |   L  |   C  |   P  |                              |   Ü  |   ,  |   .  |   U  |   B  |   ß   |
-* |------------+------+------+------+------+------|                              |------+------+------+------+------+-------|
-* | LOCK LYR   |   S  |   N  |   R  |   T  |   D  |                              |   O  |   A  |   E  |   I  |   H  |   X   |
-* |------------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+-------|
-* | TOGGLE LYR |   Z  |   V  |   W  |   G  |   J  | ____ | RESET|  | ____ | ____ |   Q  |   Ä  |   Ö  |   Y  |   K  |   -   |
-* `----------------------+------+--------+--------+------+------|  |------+------+------+------+------+---------------------'
-*                        | ____ | INVRT | WINM  | NAVI  | MOUSE |  | SYM  | NUM    | FUNC   | ____ | ____ |
-*                        | ____ | ____  | Esc   | Space | Tab   |  | Enter| Bspace | Delete | ___  |      |
-*                         `-------------------------------------'  `----------------------------------------'
-*                         Leader Key: Space + Backspace combo
-*/
-[BUTCK] = LAYOUT(
-  TO(QWERTY), DE_F,  DE_M,  DE_L,  DE_C,  DE_P,                                  DE_UE,  DE_COMM, DE_DOT, DE_U,  DE_B,  DE_SS,
-  KC_ESC,    DE_S,  DE_N,  DE_R,  DE_T,  DE_D,                                  DE_O,   DE_A,    DE_E,   DE_I,  DE_H,  DE_X,
-  TO(BASE), ALT_Z, CTL_V, SHT_W, GUI_G, DE_J,  KC_NU, KC_NU,  KC_NU,  KC_NU,  DE_Q,   GUI_AE,  SHT_OE, CTL_Y, ALT_K, DE_MINS,
-                       KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
-),
+// /*
+// * Base Layer: BUTECK-XCV
+// *
+// * ,-----------------------------------------------.                              ,------------------------------------------.
+// * | RESET LYR  |   F  |   M  |   L  |   C  |   P  |                              |   Ü  |   ,  |   .  |   U  |   B  |   ß   |
+// * |------------+------+------+------+------+------|                              |------+------+------+------+------+-------|
+// * | LOCK LYR   |   S  |   N  |   R  |   T  |   D  |                              |   O  |   A  |   E  |   I  |   H  |   X   |
+// * |------------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+-------|
+// * | TOGGLE LYR |   Z  |   V  |   W  |   G  |   J  | ____ | RESET|  | ____ | ____ |   Q  |   Ä  |   Ö  |   Y  |   K  |   -   |
+// * `----------------------+------+--------+--------+------+------|  |------+------+------+------+------+---------------------'
+// *                        | ____ | INVRT | WINM  | NAVI  | MOUSE |  | SYM  | NUM    | FUNC   | ____ | ____ |
+// *                        | ____ | ____  | Esc   | Space | Tab   |  | Enter| Bspace | Delete | ___  |      |
+// *                         `-------------------------------------'  `----------------------------------------'
+// *                         Leader Key: Space + Backspace combo
+// */
+// [BUTCK] = LAYOUT(
+//   TO(QWERTY), DE_F,  DE_M,  DE_L,  DE_C,  DE_P,                                  DE_UE,  DE_COMM, DE_DOT, DE_U,  DE_B,  DE_SS,
+//   KC_ESC,    DE_S,  DE_N,  DE_R,  DE_T,  DE_D,                                  DE_O,   DE_A,    DE_E,   DE_I,  DE_H,  DE_X,
+//   TO(BASE), ALT_Z, CTL_V, SHT_W, GUI_G, DE_J,  KC_NU, KC_NU,  KC_NU,  KC_NU,  DE_Q,   GUI_AE,  SHT_OE, CTL_Y, ALT_K, DE_MINS,
+//                        KC_NU, UC_TL1, UC_TL2, UC_TL3, UC_TL4,  UC_TR1, UC_TR2, UC_TR3, KC_NU, KC_TRNS
+// ),
 
 /*
  * Base Layer: QWERTY
