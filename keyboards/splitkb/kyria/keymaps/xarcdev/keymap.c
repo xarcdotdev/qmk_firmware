@@ -212,13 +212,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /*
  * Number Layer: NSL
+ * Right bottom main row: slower (F14), start/pause (F16), faster (F15).
  *
  * ,-----------------------------------------------.                              ,-------------------------------------------.
  * |            |  [   |  7   |  8   |  9  |   ]   |                              | ___  | ___  | ___  | ___  | ___  |  ___   |
  * |------------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |            |  ;   |  4   |  5   |  6  |   =   |                              | ___  | SHIFT | GUI | CTRL  | ALT  |  ___   |
  * |------------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |            |  ´   |  1   |  2   |  3   |  \   |  ___ |  ___ |  |  ___ |  ___ | ___  | ___  |  ___ |  ___ | ___  |  ___   |
+ * |            |  ´   |  1   |  2   |  3   |  \   |  ___ |  ___ |  |  ___ |  ___ | F14  | F16  | F15  | ___  | ___  |  ___   |
  * `----------------------+------+--------+------+--------+------|  |------+------+------+------+------+----------------------'
  *                        |  ___ |  ___   | _____ |  ___   | ___  |  |  ___ |  ___ |  ___ | ___  | ___  |
  *                        |  ___ |  ___   | Enter |   0    |  -   |  |      |      |      |      |      |
@@ -227,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NSL] = LAYOUT(
   TO(BASE),  DE_MINS, DE_7, DE_8, DE_9, DE_PLUS,                                  KC_NA, KC_NA,  KC_NA,   KC_NA,   KC_NU,   KC_NU,
   LLOCK,   DE_DOT,  DE_4, DE_5, DE_6, DE_COMM,                                    KC_NA, KC_LGUI,  KC_LSFT,   KC_LCTL,   KC_LALT,   KC_NU,
-  TO(BASE),DE_BSLS, DE_1, DE_2, DE_3, DE_ASTR, KC_NU, KC_NU,       KC_NU,         KC_NU,  KC_NU, KC_NU,   KC_NU, KC_NU, KC_NU, KC_NU,
+  TO(BASE),DE_BSLS, DE_1, DE_2, DE_3, DE_ASTR, KC_NU, KC_NU,       KC_NU,         KC_NU,  KC_F14, KC_F16, KC_F15, KC_NU, KC_NU, KC_NU,
                          KC_NP, KC_BSPC, KC_SPC, DE_0, DE_EQL,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS
 ),
 
